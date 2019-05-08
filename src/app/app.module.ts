@@ -4,6 +4,8 @@ import { NativeScriptModule } from "nativescript-angular/nativescript.module";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { NewComponent } from './new/new.component';
+import { WateringComponent } from './watering/watering.component';
+import { CatalogComponent } from './catalog/catalog.component';
 
 @NgModule({
     bootstrap: [
@@ -16,6 +18,8 @@ import { NewComponent } from './new/new.component';
     declarations: [
         AppComponent,
         NewComponent,
+        WateringComponent,
+        CatalogComponent
     ],
     schemas: [
         NO_ERRORS_SCHEMA

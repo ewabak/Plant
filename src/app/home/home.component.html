@@ -1,25 +1,4 @@
-
-<GridLayout class="page">
-
-        <GridLayout rows="80 *" columns="*">
-          
-            <FlexboxLayout class="menu">
-          
-          <Image class="menu" src="~/app/images/burger.png" width="10%"></Image>
-              </FlexboxLayout>
-                <GridLayout class="bialy" row="1" rows="*" columns="*">
-                   
-                  <FlexboxLayout>
-                      <GridLayout class="space"></GridLayout>
-                  <Button class="green" text="Add a new plant" [nsRouterLink]="['/new']"></Button>
-                
-                  <Button class="green" text="Watering schedule" ></Button>
-                  <Button class="green" text="Plants catalog" ></Button>
-
-                  
-                  </FlexboxLayout>
-                 </GridLayout>
-               </GridLayout> 
-
-</GridLayout>
-
+<Button class="green" text="Add a new plant" [nsRouterLink]="['/new']"></Button>
+              <Button class="green" text="Watering schedule" [nsRouterLink]="['/watering']"></Button>
+              <Button class="green" text="Plants catalog" [nsRouterLink]="['/catalog']" ></Button>
+            

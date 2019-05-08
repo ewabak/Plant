@@ -1,6 +1,6 @@
 {
   "nativescript": {
-    "id": "org.nativescript.Plant",
+    "id": "org.nativescript.Plants",
     "tns-android": {
       "version": "5.3.1"
     },
