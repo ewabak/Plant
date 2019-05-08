@@ -1,8 +1,26 @@
 
 <GridLayout class="page">
 
-    <Image col="0" row="0" height="30" width="30" (tap)="openDrawer()"
-    src="~/Assets/drawer-icon.png" class="m-10 p-10 drawer-icon"></Image>
-    
+        <GridLayout rows="80 *" columns="*">
+          
+            <FlexboxLayout class="menu">
+          
+          <Image class="menu" src="~/app/images/burger.png" width="10%"></Image>
+              </FlexboxLayout>
+                <GridLayout class="bialy" row="1" rows="*" columns="*">
+                   
+                  <FlexboxLayout>
+                      <GridLayout class="space"></GridLayout>
+                  <Button class="green" text="Add a new plant" ></Button>
+                
+                  <Button class="green" text="Watering schedule" ></Button>
+                  <Button class="green" text="Plants catalog" ></Button>
+
+                  
+                  </FlexboxLayout>
+                 </GridLayout>
+               </GridLayout> 
+
 </GridLayout>
 
+src\app\images\burger.png

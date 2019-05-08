@@ -19,6 +19,43 @@ components that have the btn class name.
     font-size: 18;
 }
 
-GridLayout {
+GridLayout.page {
     background: linear-gradient(-85deg, #08BD73, #02A373);
+    flex-direction: column;
+}
+
+GridLayout.bialy {
+    background: white;
+    flex-direction: column;
+    border-radius: 40 40 0 0;
+    justify-content: center;
+
+}
+
+GridLayout.space{
+    height: 104px;
+}
+FlexboxLayout {
+    flex-direction: column;
+    justify-content: center;
+    justify-content: flex-start;
+    width: 80%;
+}
+FlexboxLayout.menu {
+    flex-direction: row;
+
+    align-self:flex-end;
+}
+Image.menu{
+    justify-content: flex-start;
+}
+
+Button.green{
+    background-color: #009C73;
+    border: #007D5C;
+    height: 72;
+    width: 80%;
+    color: white;
+    font-size: 20;
+
 }
