@@ -1,1 +1,19 @@
-<Button text="catalog works!" class="btn btn-primary"></Button>
+<GridLayout class="space"></GridLayout>
+<form>
+        <TextField hint="Enter plant name"> <Button class="green"></Button></TextField>
+        
+        <Button class="send" text="Search" (tap)="onTap($event)"></Button>
+        </form>
+
+<GridLayout class="space"></GridLayout>
+
+<StackLayout class="p-20">
+    <Card:CardView class="cardStyle">
+    <StackLayout class="cardContent">
+        <Label text="Hello Kitteh!" class="m-b-10" ></Label>
+        <Image src="https://placekitten.com/200/200" />
+                </StackLayout>
+    </Card:CardView>
+</StackLayout>
+
+<Button text="Go back" class="btn btn-primary" [nsRouterLink]="['/home']"></Button>

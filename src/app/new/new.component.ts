@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'ns-new',
   templateUrl: './new.component.html',
@@ -14,3 +15,4 @@ export class NewComponent implements OnInit {
   }
 
 }
+
