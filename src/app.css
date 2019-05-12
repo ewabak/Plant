@@ -18,7 +18,7 @@ components that have the btn class name.
 .btn {
     font-size: 18;
     font-variant: small-caps;
-    font-family: 'valera round';
+    font-family: 'Roboto-Regular';
 }
 @font-face {
     font-family: Varela Round;
@@ -35,8 +35,6 @@ GridLayout.bialy {
     flex-direction: column;
     border-radius: 40 40 0 0;
     justify-content: center;
-    
-
 }
 
 GridLayout.space{
@@ -81,12 +79,16 @@ Button.send{
 }
 
 .cardStyle {
-    background-color: #fff;
+    background-color: pink;
     color: rgb(43, 43, 43);
 }
 
 .cardContent {
     padding: 20;
-    font-weight: bold;
     font-size: 30;
+    background-color: pink;
+    width: 100%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+
 }

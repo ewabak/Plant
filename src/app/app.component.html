@@ -1,26 +1,19 @@
 <GridLayout class="page">
     <ScrollView>
-
     <GridLayout rows="80 *" columns="*">
-      
         <FlexboxLayout class="menu">      
-
 <Image class="menu" src="~/app/images/burger.png" width="10%"></Image>
           </FlexboxLayout>
           <ScrollView></ScrollView>
             <GridLayout class="bialy" row="1" rows="*" columns="*">
-               
               <FlexboxLayout>
                   <GridLayout class="space"></GridLayout>
-
-
-                  <router-outlet></router-outlet>
+                  <page-router-outlet actionBarVisibility="never"></page-router-outlet>
                 </FlexboxLayout>
-                
             </GridLayout>
           </GridLayout> 
         </ScrollView>
-  </GridLayout>
+</GridLayout>
 
   
   

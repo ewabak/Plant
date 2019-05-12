@@ -1,8 +1,14 @@
 import { Component } from "@angular/core";
-import { Observable } from "tns-core-modules/data/observable";
+import { Observable, NgModule } from "tns-core-modules/data/observable";
 import * as frame from "tns-core-modules/ui/frame";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import { Page } from "tns-core-modules/ui/page";
+import {BrowserModule} from '@angular/platform-browser';
+import {HttpModule} from '@angular/http';
+import { AppComponent } from './app.component';
+import { registerElement } from 'nativescript-angular/element-registry';
+import { CardView } from 'nativescript-cardview';
+registerElement('CardView', () => CardView);
 
 @Component({
     moduleId: module.id,
@@ -33,3 +39,4 @@ export function pageLoaded(args) {
     let page = args.object as Page;
     page.bindingContext = new GettingStartedViewModel();
 }
+

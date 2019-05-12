@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'ns-catalog',
   templateUrl: './catalog.component.html',
