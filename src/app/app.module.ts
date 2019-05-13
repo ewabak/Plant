@@ -7,13 +7,17 @@ import { NewComponent } from './new/new.component';
 import { WateringComponent } from './watering/watering.component';
 import { CatalogComponent } from './catalog/catalog.component';
 
+import { HttpClientModule } from "@angular/common/http";
+
+
 @NgModule({
     bootstrap: [
         AppComponent
     ],
     imports: [
         NativeScriptModule,
-        AppRoutingModule
+        AppRoutingModule,
+        HttpClientModule
     ],
     declarations: [
         AppComponent,
