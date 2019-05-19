@@ -1,41 +1,18 @@
 {
-  "nativescript": {
-    "id": "org.nativescript.Plants",
-    "tns-android": {
-      "version": "5.3.1"
-    },
-    "tns-ios": {
-      "version": "5.3.1"
-    }
+  "main": "node_modules/expo/AppEntry.js",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "eject": "expo eject"
   },
-  "description": "NativeScript Application",
-  "license": "SEE LICENSE IN <your-license-filename>",
-  "repository": "<fill-your-repository-here>",
   "dependencies": {
-    "@angular/animations": "~7.2.0",
-    "@angular/common": "~7.2.0",
-    "@angular/compiler": "~7.2.0",
-    "@angular/core": "~7.2.0",
-    "@angular/forms": "~7.2.0",
-    "@angular/http": "~7.2.0",
-    "@angular/platform-browser": "~7.2.0",
-    "@angular/platform-browser-dynamic": "~7.2.0",
-    "@angular/router": "~7.2.0",
-    "nativescript-angular": "~7.2.0",
-    "nativescript-theme-core": "~1.0.4",
-    "nativescript-ui-sidedrawer": "^6.0.0",
-    "reflect-metadata": "~0.1.12",
-    "rxjs": "~6.3.0",
-    "tns-core-modules": "~5.3.0",
-    "zone.js": "~0.8.26"
+    "expo": "^32.0.0",
+    "react": "16.5.0",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz"
   },
   "devDependencies": {
-    "@angular/compiler-cli": "~7.2.0",
-    "@nativescript/schematics": "~0.5.0",
-    "@ngtools/webpack": "~7.2.0",
-    "nativescript-dev-typescript": "~0.9.0",
-    "nativescript-dev-webpack": "~0.21.0"
+    "babel-preset-expo": "^5.0.0"
   },
-  "gitHead": "803cec054c44c99eaa59cdc267993e6346f6cb3a",
-  "readme": "NativeScript Application"
+  "private": true
 }
