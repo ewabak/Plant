@@ -1,4 +1,7 @@
 import React from "react";
+import { Button } from 'react-native';
+
+
 import {
 StyleSheet,
 View,
@@ -14,6 +17,8 @@ return {
   title: "Source Listing",
   headerStyle: {backgroundColor: "#fff"},
   headerTitleStyle: {textAlign: "center",flex: 1}
+  
+
  };
 };
 
@@ -53,6 +58,7 @@ renderItem=(data)=>
 <Text style={styles.lightText}>{data.item.scientific_name}</Text>
 <Text style={styles.lightText}>{data.item.common_name}</Text>
 
+
 </TouchableOpacity>
 
 render(){
@@ -65,18 +71,26 @@ render(){
 
 return(
  <View style={styles.container}>
+       <Button title="Learn More" color="#841584" 
+       accessibilityLabel="Learn more about this purple button"></Button>
+       <Button title="Learn More" color="#841584" 
+       accessibilityLabel="Learn more about this purple button"></Button>
+       <Button title="Learn More" color="#841584" 
+       accessibilityLabel="Learn more about this purple button"></Button>
  <FlatList
     data= {this.state.dataSource}
     ItemSeparatorComponent = {this.FlatListItemSeparator}
     renderItem= {item=> this.renderItem(item)}
     keyExtractor= {item=>item.id.toString()}
  />
+
 </View>
 )}
 }
 
 const styles = StyleSheet.create({
   container: {
+    paddingTop: 60,
     flex: 1,
     backgroundColor: "#fff"
    },
