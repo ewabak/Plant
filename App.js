@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from 'react-native';
-
+import styles from "./styles";
 
 import {
 StyleSheet,
@@ -17,8 +17,6 @@ return {
   title: "Source Listing",
   headerStyle: {backgroundColor: "#fff"},
   headerTitleStyle: {textAlign: "center",flex: 1}
-  
-
  };
 };
 
@@ -47,9 +45,7 @@ return (
   <View style={{
      height: .5,
      width:"100%",
-     backgroundColor:"rgba(0,0,0,0.5)",
-}}
-/>
+     backgroundColor:"rgba(0,0,0,0.5)",}} />
 );
 }
 
@@ -57,8 +53,6 @@ renderItem=(data)=>
 <TouchableOpacity style={styles.list}>
 <Text style={styles.lightText}>{data.item.scientific_name}</Text>
 <Text style={styles.lightText}>{data.item.common_name}</Text>
-
-
 </TouchableOpacity>
 
 render(){
@@ -70,40 +64,26 @@ render(){
 )}
 
 return(
- <View style={styles.container}>
-       <Button title="Learn More" color="#841584" 
-       accessibilityLabel="Learn more about this purple button"></Button>
-       <Button title="Learn More" color="#841584" 
-       accessibilityLabel="Learn more about this purple button"></Button>
-       <Button title="Learn More" color="#841584" 
-       accessibilityLabel="Learn more about this purple button"></Button>
+<View style={styles.containerxd}>  
+ <View style={styles.textStyle}>
+    <Text style={styles.textStyle}>fajnie sobie jest tekst</Text></View>
+<View style={styles.button}>
+       <Button title="Learn More" color="#02A373" onPress={this._onPressButton}
+       accessibilityLabel="Learn more about this purple button"></Button></View>
+<View style={styles.button}>
+       <Button title="Learn More" color="#02A373" onPress={this._onPressButton}
+       accessibilityLabel="Learn more about this purple button"></Button></View>
+<View style={styles.button}>
+       <Button title="Learn More" color="#02A373" onPress={this._onPressButton}
+       accessibilityLabel="Learn more about this purple button"></Button></View>
+
+<View style={styles.container}> 
  <FlatList
     data= {this.state.dataSource}
     ItemSeparatorComponent = {this.FlatListItemSeparator}
     renderItem= {item=> this.renderItem(item)}
     keyExtractor= {item=>item.id.toString()}
- />
-
-</View>
+ /></View>
+</View> 
 )}
 }
-
-const styles = StyleSheet.create({
-  container: {
-    paddingTop: 60,
-    flex: 1,
-    backgroundColor: "#fff"
-   },
-  loader:{
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#fff"
-   },
-  list:{
-    paddingVertical: 4,
-    margin: 5,
-    backgroundColor: "#fff"
-   }
-});
-//test
