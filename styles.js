@@ -4,6 +4,7 @@ export default StyleSheet.create({
         containerxd: {
           flex: 4,
           backgroundColor: "#02A373",
+          
           justifyContent: "space-between"
          },
          container: {
@@ -25,22 +26,24 @@ export default StyleSheet.create({
         button: {
           marginTop: 15,
           paddingHorizontal: 50,
+          paddingTop: 50,
           borderTopLeftRadius: 40,
           borderTopRightRadius: 40,
           backgroundColor: "#ffffff"
         },
         ImageIconStyle: {
-            padding: 10,
-            margin: 5,
             height: 25,
             width: 25,
             justifyContent: 'flex-start',
             resizeMode: 'stretch',
         },
         textStyle: {
-            flex: 1,
+            
             flexDirection: 'row',
             alignSelf: 'flex-end',
+            paddingRight: 20,
+            paddingTop: 40,
+            paddingBottom: 25,
             marginTop: 5,
             
         }

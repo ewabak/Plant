@@ -68,20 +68,21 @@ return(
 <View style={styles.containerxd}>  
 
  <TouchableOpacity style={styles.textStyle}>
+    <Text></Text>
     <Image
      source={require('./images/burger.png')}
      style={styles.ImageIconStyle} />
-    <Text style={styles.TextStyle}> Login Using Facebook </Text>
+      <Text></Text>
 </TouchableOpacity>
 <View style={styles.button}>
         <Text></Text>
-       <Button title="Learn More" color="#02A373" justifyContent="space-between" onPress={this._onPressButton}
+       <Button title="Add a new plant" color="#02A373" justifyContent="space-between" onPress={this._onPressButton}
        accessibilityLabel="Learn more about this purple button"></Button>
        <Text></Text>
-       <Button title="Learn More" color="#02A373" justifyContent="space-between" onPress={this._onPressButton}
+       <Button title="Watering schedule" color="#02A373" justifyContent="space-between" onPress={this._onPressButton}
        accessibilityLabel="Learn more about this purple button"></Button>
        <Text></Text>
-       <Button title="Learn More" color="#02A373" justifyContent="space-between" onPress={this._onPressButton}
+       <Button title="Plants catalog" color="#02A373" justifyContent="space-between" onPress={this._onPressButton}
        accessibilityLabel="Learn more about this purple button"></Button></View>
 
 <View style={styles.container}> 
