@@ -7,6 +7,7 @@ StyleSheet,
 View,
 ActivityIndicator,
 FlatList,
+Image,
 Text,
 TouchableOpacity
 } from "react-native";
@@ -65,16 +66,22 @@ render(){
 
 return(
 <View style={styles.containerxd}>  
- <View style={styles.textStyle}>
-    <Text style={styles.textStyle}>fajnie sobie jest tekst</Text></View>
+
+ <TouchableOpacity style={styles.textStyle}>
+    <Image
+     source={require('./images/burger.png')}
+     style={styles.ImageIconStyle} />
+    <Text style={styles.TextStyle}> Login Using Facebook </Text>
+</TouchableOpacity>
 <View style={styles.button}>
-       <Button title="Learn More" color="#02A373" onPress={this._onPressButton}
-       accessibilityLabel="Learn more about this purple button"></Button></View>
-<View style={styles.button}>
-       <Button title="Learn More" color="#02A373" onPress={this._onPressButton}
-       accessibilityLabel="Learn more about this purple button"></Button></View>
-<View style={styles.button}>
-       <Button title="Learn More" color="#02A373" onPress={this._onPressButton}
+        <Text></Text>
+       <Button title="Learn More" color="#02A373" justifyContent="space-between" onPress={this._onPressButton}
+       accessibilityLabel="Learn more about this purple button"></Button>
+       <Text></Text>
+       <Button title="Learn More" color="#02A373" justifyContent="space-between" onPress={this._onPressButton}
+       accessibilityLabel="Learn more about this purple button"></Button>
+       <Text></Text>
+       <Button title="Learn More" color="#02A373" justifyContent="space-between" onPress={this._onPressButton}
        accessibilityLabel="Learn more about this purple button"></Button></View>
 
 <View style={styles.container}> 
