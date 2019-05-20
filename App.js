@@ -1,6 +1,6 @@
 import React from "react";
-import { Button } from 'react-native';
 import styles from "./styles";
+import { Button } from 'react-native';
 
 import {
 StyleSheet,
@@ -75,16 +75,14 @@ return(
       <Text></Text>
 </TouchableOpacity>
 <View style={styles.button}>
-        <Text></Text>
-       <Button title="Add a new plant" color="#02A373" justifyContent="space-between" onPress={this._onPressButton}
+       <Button title="Add a new plant" color="#009C73" justifyContent="space-between" onPress={this._onPressButton}
        accessibilityLabel="Learn more about this purple button"></Button>
        <Text></Text>
-       <Button title="Watering schedule" color="#02A373" justifyContent="space-between" onPress={this._onPressButton}
+       <Button title="Watering schedule" color="#009C73" justifyContent="space-between" onPress={this._onPressButton}
        accessibilityLabel="Learn more about this purple button"></Button>
        <Text></Text>
-       <Button title="Plants catalog" color="#02A373" justifyContent="space-between" onPress={this._onPressButton}
+       <Button title="Plants catalog" color="#009C73" justifyContent="space-between" onPress={this._onPressButton}
        accessibilityLabel="Learn more about this purple button"></Button></View>
-
 <View style={styles.container}> 
  <FlatList
     data= {this.state.dataSource}

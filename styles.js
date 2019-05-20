@@ -4,7 +4,6 @@ export default StyleSheet.create({
         containerxd: {
           flex: 4,
           backgroundColor: "#02A373",
-          
           justifyContent: "space-between"
          },
          container: {
@@ -38,7 +37,6 @@ export default StyleSheet.create({
             resizeMode: 'stretch',
         },
         textStyle: {
-            
             flexDirection: 'row',
             alignSelf: 'flex-end',
             paddingRight: 20,
