@@ -1,10 +1,9 @@
 import { StyleSheet } from "react-native"
 
-export default StyleSheet.create({
+var styles = StyleSheet.create({
         containerxd: {
           flex: 4,
           backgroundColor: "#02A373",
-          justifyContent: "space-between"
          },
          container: {
           flex: 4,
@@ -46,3 +45,5 @@ export default StyleSheet.create({
             
         }
 })
+
+module.exports = styles;
