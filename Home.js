@@ -67,7 +67,7 @@ class Home extends React.Component {
             style={styles.ImageIconStyle} />
      </TouchableOpacity>
      <View style={styles.button}>
-            <Button title="Add a new plant HEHE" color="#009C73" justifyContent="space-between"
+            <Button title="Add a new plant" color="#009C73" justifyContent="space-between"
             accessibilityLabel="Learn more about this purple button"></Button>
             <Text></Text>
             <Button title="Watering schedule" color="#009C73" justifyContent="space-between"
