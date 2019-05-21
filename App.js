@@ -6,8 +6,10 @@ import Catalog from './Catalog';
 const AppNavigator = createStackNavigator(
   
 {
-  Home: { screen: Home },
-  Catalog: { screen: Catalog },
+  Home: { screen: Home,
+    navigationOptions: { header: null } },
+  Catalog: { screen: Catalog,
+    navigationOptions: { header: null } },
   
 },
 {

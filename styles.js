@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native"
 
+
 var styles = StyleSheet.create({
         containerxd: {
           flex: 4,
@@ -19,7 +20,7 @@ var styles = StyleSheet.create({
         list:{
           paddingVertical: 4,
           margin: 5,
-          backgroundColor: "#fff"
+          backgroundColor: "#fff",
          },
         button: {
           marginTop: 15,

@@ -4,10 +4,12 @@ import Catalog from './Catalog';
 
 
 const AppNavigator = createStackNavigator({
-  Home: { screen: Home },
-  Catalog: { screen: Catalog}
+  Home: { screen: Home,
+   },
+  Catalog: { screen: Catalog},
+  
   }
 );
-const App = createAppContainer(NavStack);
+const App = createStackNavigator({ Home: MainTabNavigator }, { headerMode: 'none' });
 
 export default App;
