@@ -22,13 +22,17 @@ var styles = StyleSheet.create({
           margin: 5,
           backgroundColor: "#fff",
          },
-        button: {
+        white: {
           marginTop: 15,
           paddingHorizontal: 50,
           paddingTop: 50,
           borderTopLeftRadius: 40,
           borderTopRightRadius: 40,
-          backgroundColor: "#ffffff"
+          backgroundColor: "#ffffff",
+          justifyContent: 'center'
+        },
+        space: {
+          height:50
         },
         ImageIconStyle: {
             height: 25,
@@ -44,6 +48,30 @@ var styles = StyleSheet.create({
             paddingBottom: 25,
             marginTop: 5,
             
+        },
+        card: {
+            marginBottom: 30,
+            shadowColor: '#000',
+            shadowOpacity: 0.2,
+            elevation: 3,
+            shadowOffset: {width:3, height:3},
+            borderWidth: 1,
+            borderColor: '#fff'
+        },
+        cardImage: {
+          width: '100%',
+          height: 200,
+          resizeMode: 'cover',
+
+        },
+        cardText: {
+          fontSize:20,
+          textAlign: 'center'
+        },
+        buttonGreen: {
+          color: "#009C73",
+          justifyContent: "space-between",
+          margin: 50
         }
 })
 

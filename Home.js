@@ -9,9 +9,9 @@ import {
     FlatList,
     Image,
     ScrollView,
-    Button
 } from 'react-native';
 import styles from "./styles";
+import { Button } from 'react-native-elements';
 
 
 
@@ -29,20 +29,21 @@ render(){
             source={require('./images/burger.png')}
             style={styles.ImageIconStyle} />
      </TouchableOpacity>
-     <View style={styles.button}>
-            <Button title="Add a new plant HEHE" color="#009C73" justifyContent="space-between"
-            accessibilityLabel="Learn more about this purple button"></Button>
+     <View style={styles.white}>
+            <Button title="Add a new plant" type="solid" buttonStyle = {{backgroundColor:'#009C73'}} />
             <Text></Text>
-            <Button title="Watering schedule" color="#009C73" justifyContent="space-between"
-            accessibilityLabel="Learn more about this purple button"></Button>
+            <Button title="Watering schedule" type="solid" buttonStyle = {{backgroundColor:'#009C73'}} />
             <Text></Text>
-            <Button title="Plants catalog" color="#009C73" onPress={() => this.props.navigation.navigate('Catalog')} justifyContent="space-between" 
-            accessibilityLabel="Learn more about this purple button"/>
+            <Button title="Plants catalog" type="solid" buttonStyle = {{backgroundColor:'#009C73'}} onPress={() => this.props.navigation.navigate('Catalog')} />
+      
+            <View style={styles.space}/>
+
       </View>
-    
+
     </ScrollView>
      );}
 
+//<Button title="Search"   type="outline" buttonStyle = {{width:100, borderColor:'#009C73'}} titleStyle={{color:"#00000"}}/>
 
 }
 

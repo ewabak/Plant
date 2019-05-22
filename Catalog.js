@@ -5,14 +5,13 @@ import {
     ActivityIndicator,
     Text,
     View,
-    Button,
     TouchableOpacity,
     FlatList,
     Image,
     ScrollView
 } from 'react-native';
 import styles from "./styles";
-import { Input, Card } from 'react-native-elements';
+import { Input, Card, Button } from 'react-native-elements';
 
 
 
@@ -37,19 +36,12 @@ class Home extends React.Component {
      })
      .catch(error=>console.log(error)) //to catch the errors if any
      }
-     
-     FlatListItemSeparator = () => {
-     return (
-       <View style={{
-          height: .5,
-          width:"100%",
-          backgroundColor:"rgba(0,0,0,0.5)",}} />
-     );
-     }
+
      
      renderItem=(data)=>
-     <TouchableOpacity style={styles.list}>
-            <Text style={styles.lightText}>{data.item.scientific_name}</Text>
+     <TouchableOpacity style={styles.card}>
+            <Image style={styles.cardImage} source={require('./images/flower.jpg')}/>
+            <Text style={styles.cardText}>{data.item.scientific_name}</Text>
      </TouchableOpacity>
      
      render(){
@@ -67,14 +59,17 @@ class Home extends React.Component {
             source={require('./images/burger.png')}
             style={styles.ImageIconStyle} />
      </TouchableOpacity>
-     <View style={styles.button}>
+     <View style={styles.white}>
      <Input placeholder='Enter plant name'/>
+     <View style={styles.space}/>
+     
+<Button title="Search"   type="outline" buttonStyle = {{width:100, borderColor:'#009C73', justifyContent: 'center', alignItems: 'center'}} titleStyle={{color:"#00000"}}/>
+<View style={styles.space}/>
 
       
-     <View style={styles.container}> 
+     <View> 
       <FlatList
          data= {this.state.dataSource}
-         ItemSeparatorComponent = {this.FlatListItemSeparator}
          renderItem= {item=> this.renderItem(item)}
          keyExtractor= {item=>item.id.toString()} />
       </View>
