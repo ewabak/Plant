@@ -7,9 +7,9 @@ const AppNavigator = createStackNavigator(
   
 {
   Home: { screen: Home,
-          navigationOptions: { header: null } },
+    navigationOptions: { header: null } },
   Catalog: { screen: Catalog,
-              navigationOptions: { header: null } },
+    navigationOptions: { header: null } },
   
 },
 {
