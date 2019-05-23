@@ -2,6 +2,10 @@ import React, {Component} from 'react';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import Home from './Home';
 import Catalog from './Catalog';
+import CatalogPlant from './CatalogPlant';
+import NewPlant from './NewPlant';
+
+
 
 const AppNavigator = createStackNavigator(
   
@@ -10,8 +14,14 @@ const AppNavigator = createStackNavigator(
     navigationOptions: { header: null } },
   Catalog: { screen: Catalog,
     navigationOptions: { header: null } },
-  
+    CatalogPlant: { screen: CatalogPlant,
+      navigationOptions: { header: null } },
+      NewPlant: { screen: NewPlant,
+        navigationOptions: { header: null } },
+
+
 },
+
 {
     initialRouteName: 'Home',
 }

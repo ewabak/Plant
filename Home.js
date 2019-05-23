@@ -30,7 +30,7 @@ render(){
             style={styles.ImageIconStyle} />
      </TouchableOpacity>
      <View style={styles.white}>
-            <Button title="Add a new plant" type="solid" buttonStyle = {{backgroundColor:'#009C73'}} />
+            <Button title="Add a new plant" type="solid" buttonStyle = {{backgroundColor:'#009C73'}} onPress={() => this.props.navigation.navigate('NewPlant')}/>
             <Text></Text>
             <Button title="Watering schedule" type="solid" buttonStyle = {{backgroundColor:'#009C73'}} />
             <Text></Text>
