@@ -18,14 +18,13 @@ class CatalogPlant extends React.Component {
 
   constructor(props){
     super(props);
-
  }
  state = {
   data: ''
 }
 
   componentDidMount(){
-   const { navigation } = this.props;
+  const { navigation } = this.props;
   const linkPlant = navigation.getParam('linkPlant');
 
     fetch('https://trefle.io/api/plants/103505?token=Ymgra1d5M1dCaUlmMWgyME9qNVhTdz09&fbclid=IwAR3FY03yEVzS77Ca1Q9TIbMdMlJhXtpOjhcqcD-MJHAYJXCNcdA3UrJ2p9Q')
@@ -38,24 +37,24 @@ class CatalogPlant extends React.Component {
    .catch(error=>console.log(error)) 
    }
 
-
  //  renderItem=(data)=>
 
    //  <TouchableOpacity style={styles.list}>
      //       <Text style={styles.lightText}>{data.item.varieties[0].common_name}</Text> 
    //  </TouchableOpacity>
 
-   images = () => {
+   images=() => {
     if(this.state.data.images)
         return this.state.data.images.map(images => images.url)
 }
 
 
 render(){
-  console.log(this.state.data.dataSource);
-  const { data} = this.state;
-  var photo = this.images.toString();
+  // console.log(this.state.data.dataSource);
+  const { data } = this.state;
+ 
    
+
      return(
       <ScrollView style={styles.containerxd}>
         <TouchableOpacity style={styles.textStyle}>
@@ -70,12 +69,16 @@ render(){
             <View style={{flex:1, alignItems:'center', justifyContent:'center'}}> 
       <Text>{this.state.data.scientific_name}</Text>
       <Text>{this.state.data.common_name}</Text>
+      <Text>{this.state.data.shade_tolerance}</Text>
+      <Text>{this.state.data.moisture_use}</Text>
       <Text>{this.images()}</Text>
-      <Text>{photo}</Text>
       
-      <Image source={{uri: this.images()}} style = {{ width: 75, height: 55 }}/>
-      <Image source={"'"+photo+"'"} />
-      <Image source={photo} />
+
+
+      <Image source = {this.images()} style = {{width: 160, height: 120}}/>
+
+      {/* <Image style={styles.image} source={stringify(this.images())} /> */}
+
 
       
       </View>
