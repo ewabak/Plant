@@ -16,10 +16,87 @@ import { withNavigation } from 'react-navigation';
 
 class CatalogPlant extends React.Component {
 
+  constructor(props){
+    super(props);
+
+ }
+ state = {
+  data: ''
+}
+
   componentDidMount(){
-    const { navigation } = this.props;
+   const { navigation } = this.props;
   const linkPlant = navigation.getParam('linkPlant');
-    fetch("https://trefle.io/api/plants/103505?token=Ymgra1d5M1dCaUlmMWgyME9qNVhTdz09&fbclid=IwAR3FY03yEVzS77Ca1Q9TIbMdMlJhXtpOjhcqcD-MJHAYJXCNcdA3UrJ2p9Q")
+
+    fetch('https://trefle.io/api/plants/103505?token=Ymgra1d5M1dCaUlmMWgyME9qNVhTdz09&fbclid=IwAR3FY03yEVzS77Ca1Q9TIbMdMlJhXtpOjhcqcD-MJHAYJXCNcdA3UrJ2p9Q')
+    .then(response => response.json())
+   .then((responseJson)=> {
+     this.setState({
+      data: responseJson
+     })
+   })
+   .catch(error=>console.log(error)) 
+   }
+
+
+ //  renderItem=(data)=>
+
+   //  <TouchableOpacity style={styles.list}>
+     //       <Text style={styles.lightText}>{data.item.varieties[0].common_name}</Text> 
+   //  </TouchableOpacity>
+
+   images = () => {
+    if(this.state.data.images)
+        return this.state.data.images.map(images => images.url)
+}
+
+
+render(){
+  console.log(this.state.data.dataSource);
+  const { data} = this.state;
+  var photo = this.images.toString();
+   
+     return(
+      <ScrollView style={styles.containerxd}>
+        <TouchableOpacity style={styles.textStyle}>
+      <Image
+         source={require('./images/burger.png')}
+         
+         style={styles.ImageIconStyle} />
+  </TouchableOpacity>
+
+     <View style={styles.white}>
+
+            <View style={{flex:1, alignItems:'center', justifyContent:'center'}}> 
+      <Text>{this.state.data.scientific_name}</Text>
+      <Text>{this.state.data.common_name}</Text>
+      <Text>{this.images()}</Text>
+      <Text>{photo}</Text>
+      
+      <Image source={{uri: this.images()}} style = {{ width: 75, height: 55 }}/>
+      <Image source={"'"+photo+"'"} />
+      <Image source={photo} />
+
+      
+      </View>
+      </View>
+    </ScrollView>
+     );}
+
+}
+
+export default CatalogPlant;
+
+//            <Text>{(linkPlant)}</Text>
+
+
+/**
+ 
+componentDidMount(){
+   const { navigation } = this.props;
+  const linkPlant = navigation.getParam('linkPlant');
+
+    fetch(linkPlant + '?token=/////FY03yEVzS77Ca1Q9TIbMdMlJhXtpOjhcqcD-MJHAYJXCNcdA3UrJ2p9Q')
     .then(response => response.json())
    .then((responseJson)=> {
      this.setState({
@@ -27,44 +104,30 @@ class CatalogPlant extends React.Component {
       dataSource: responseJson
      })
    })
-   .catch(error=>console.log(error)) //to catch the errors if any
+   .catch(error=>console.log(error)) 
    }
 
    renderItem=(data)=>
 
-<TouchableOpacity style={styles.list}>
-              <Text style={styles.lightText}>{data.item.scientific_name}</Text> 
+     <TouchableOpacity style={styles.list}>
+            <Text style={styles.lightText}>{data.item.varieties[0].common_name}</Text> 
      </TouchableOpacity>
-     
 
-render(){
+     render(){
 
-  
+     return(
 
-
-  return(
-   <ScrollView style={styles.containerxd}>
-   <TouchableOpacity style={styles.textStyle}>
-      <Image
-         source={require('./images/burger.png')}
-         style={styles.ImageIconStyle} />
-  </TouchableOpacity>
-  <View style={styles.white}>
-  <View style={styles.space}/>
-  
-   
-  <View> 
+            <View> 
       <FlatList
          data= {this.state.dataSource}
          renderItem= {item=> this.renderItem(item)}
          keyExtractor= {item=>item.id.toString()} />
       </View>
-   </View>
- </ScrollView>
-  );
-  }
-    }
-export default CatalogPlant;
+
+    </ScrollView>
+     );}
 
 
 
+
+ */
