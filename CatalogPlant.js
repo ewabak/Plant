@@ -11,7 +11,7 @@ import {
     ScrollView,
 } from 'react-native';
 import styles from "./styles";
-import { Button } from 'react-native-elements';
+import { Button, ListItem, colors } from 'react-native-elements';
 import { withNavigation } from 'react-navigation';
 
 class CatalogPlant extends React.Component {
@@ -67,8 +67,41 @@ render(){
      <View style={styles.white}>
 
             <View style={{flex:1, alignItems:'center', justifyContent:'center'}}> 
-      <Text>{this.state.data.scientific_name}</Text>
-      <Text>{this.state.data.common_name}</Text>
+      
+      <View style={styles.tabHeader}><Text style={styles.textHeader}>Scientific name</Text></View>
+      <View style={styles.tabContent}><Text style={styles.textContent}>{this.state.data.scientific_name}</Text></View>
+      
+      <View style={styles.tabHeader}><Text style={styles.textHeader}>Common name</Text></View>
+      <View style={styles.tabContent}><Text style={styles.textContent}>{this.state.data.common_name}</Text></View>
+      
+      <View style={styles.tabHeader}><Text style={styles.textHeader}>Moisture use</Text></View>
+      <View style={styles.tabContent}><Text style={styles.textContent}>{this.state.data.common_name}</Text></View>
+
+      <View style={styles.tabHeader}><Text style={styles.textHeader}>Drought tolerance</Text></View>
+      <View style={styles.tabContent}><Text style={styles.textContent}>{this.state.data.common_name}</Text></View>
+
+      <View style={styles.tabHeader}><Text style={styles.textHeader}>Flower color</Text></View>
+      <View style={styles.tabContent}><Text style={styles.textContent}>{this.state.data.common_name}</Text></View>
+      
+      <View style={styles.tabHeader}><Text style={styles.textHeader}>Life span</Text></View>
+      <View style={styles.tabContent}><Text style={styles.textContent}>{this.state.data.common_name}</Text></View>
+
+      <View style={styles.tabHeader}><Text style={styles.textHeader}>Bloom period</Text></View>
+      <View style={styles.tabContent}><Text style={styles.textContent}>{this.state.data.common_name}</Text></View>
+
+      <View style={styles.tabHeader}><Text style={styles.textHeader}>Growth period</Text></View>
+      <View style={styles.tabContent}><Text style={styles.textContent}>{this.state.data.common_name}</Text></View>
+
+      <View style={styles.tabHeader}><Text style={styles.textHeader}>Mature height</Text></View>
+      <View style={styles.tabContent}><Text style={styles.textContent}>{this.state.data.common_name}</Text></View>
+
+      <View style={styles.tabHeader}><Text style={styles.textHeader}>Toxicity</Text></View>
+      <View style={styles.tabContent}><Text style={styles.textContent}>{this.state.data.common_name}</Text></View>
+
+
+
+
+
       <Text>{this.state.data.shade_tolerance}</Text>
       <Text>{this.state.data.moisture_use}</Text>
       <Text>{this.images()}</Text>

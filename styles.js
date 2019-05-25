@@ -31,6 +31,29 @@ var styles = StyleSheet.create({
           backgroundColor: "#ffffff",
           justifyContent: 'center'
         },
+        tabHeader: {
+          backgroundColor: '#F2F2F2',
+          height: 50,
+          width: '100%',
+          flex: 1,
+          justifyContent: 'center',
+          alignItems: 'center'
+        },
+        textHeader:{
+          fontSize:20,
+          fontWeight:'bold'
+        },
+        tabContent: {
+          backgroundColor: '#fff',
+          height: 50,
+          width: '100%',
+          flex: 1,
+          justifyContent: 'center',
+          alignItems: 'center'
+        },
+        textContent:{
+          fontSize:18
+                },
         space: {
           height:50
         },
