@@ -13,6 +13,19 @@ import {
 import styles from "./styles";
 import { Button, ListItem, colors } from 'react-native-elements';
 import { withNavigation } from 'react-navigation';
+import {Constants} from 'expo';
+import Firebase from 'firebase';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDWo5CjGYhk9wlO2n4jlywuuGIikoQQBXo",
+  authDomain: "bai-plant-898e9.firebaseapp.com",
+  databaseURL: "https://bai-plant-898e9.firebaseio.com",
+  projectId: "bai-plant-898e9",
+  storageBucket: "bai-plant-898e9.appspot.com",
+  messagingSenderId: "73606555056",
+  appId: "1:73606555056:web:19d5e53b6fbd61d9"
+};
+firebase.initializeApp(firebaseConfig);
 
 class CatalogPlant extends React.Component {
 
@@ -43,16 +56,16 @@ class CatalogPlant extends React.Component {
      //       <Text style={styles.lightText}>{data.item.varieties[0].common_name}</Text> 
    //  </TouchableOpacity>
 
-   images=() => {
-    if(this.state.data.images)
-        return this.state.data.images.map(images => images.url)
-}
+//    images=() => {
+//     if(this.state.data.images)
+//         return this.state.data.images.map(images => images.url)
+// }
+
 
 
 render(){
   // console.log(this.state.data.dataSource);
   const { data } = this.state;
-  // const name = data && data.order && data.order.name || '';
   const obrazek = data && data.main_species && data.main_species.images && data.main_species.images[0] && data.main_species.images[0].url || '';
   const scname = data && data.scientific_name || '';
   const coname = data && data.common_name || '';
@@ -64,59 +77,56 @@ render(){
   const gperiod = data && data.main_species && data.main_species.specifications && data.main_species.specifications.growth_period || '';
   const mheight = data && data.main_species && data.main_species.specifications && data.main_species.specifications.mature_height && data.main_species.specifications.mature_height.cm || '';
   const toxicity = data && data.main_species && data.main_species.specifications && data.main_species.specifications.toxicity || '';
+  let image = {uri: obrazek}; 
 
      return(
       <ScrollView style={styles.containerxd}>
         <TouchableOpacity style={styles.textStyle}>
-      <Image
-         source={require('./images/burger.png')}
-         
-         style={styles.ImageIconStyle} />
-  </TouchableOpacity>
+          <Image
+            source={require('./images/burger.png')}
+            style={styles.ImageIconStyle} />
+        </TouchableOpacity>
 
      <View style={styles.white}>
+        <View style={{flex:1, alignItems:'center', justifyContent:'center'}}> 
 
-            <View style={{flex:1, alignItems:'center', justifyContent:'center'}}> 
+          <Image source={image} style={styles.cardImage} />
+          <Text></Text>
 
-      <Text>{obrazek}</Text>
+          <View style={styles.tabHeader}><Text style={styles.textHeader}>Scientific name</Text></View>
+          <View style={styles.tabContent}><Text style={styles.textContent}>{scname}</Text></View>
+          
+          <View style={styles.tabHeader}><Text style={styles.textHeader}>Common name</Text></View>
+          <View style={styles.tabContent}><Text style={styles.textContent}>{coname}</Text></View>
+          
+          <View style={styles.tabHeader}><Text style={styles.textHeader}>Moisture use</Text></View>
+          <View style={styles.tabContent}><Text style={styles.textContent}>{moisture}</Text></View>
 
-      <Image source = {obrazek} style = {{width: 160, height: 120}}/>
-      
-      <View style={styles.tabHeader}><Text style={styles.textHeader}>Scientific name</Text></View>
-      <View style={styles.tabContent}><Text style={styles.textContent}>{scname}</Text></View>
-      
-      <View style={styles.tabHeader}><Text style={styles.textHeader}>Common name</Text></View>
-      <View style={styles.tabContent}><Text style={styles.textContent}>{coname}</Text></View>
-      
-      <View style={styles.tabHeader}><Text style={styles.textHeader}>Moisture use</Text></View>
-      <View style={styles.tabContent}><Text style={styles.textContent}>{moisture}</Text></View>
+          <View style={styles.tabHeader}><Text style={styles.textHeader}>Drought tolerance</Text></View>
+          <View style={styles.tabContent}><Text style={styles.textContent}>{drought}</Text></View>
 
-      <View style={styles.tabHeader}><Text style={styles.textHeader}>Drought tolerance</Text></View>
-      <View style={styles.tabContent}><Text style={styles.textContent}>{drought}</Text></View>
+          <View style={styles.tabHeader}><Text style={styles.textHeader}>Flower color</Text></View>
+          <View style={styles.tabContent}><Text style={styles.textContent}>{fcolor}</Text></View>
+          
+          <View style={styles.tabHeader}><Text style={styles.textHeader}>Life span</Text></View>
+          <View style={styles.tabContent}><Text style={styles.textContent}>{lifespan}</Text></View>
 
-      <View style={styles.tabHeader}><Text style={styles.textHeader}>Flower color</Text></View>
-      <View style={styles.tabContent}><Text style={styles.textContent}>{fcolor}</Text></View>
-      
-      <View style={styles.tabHeader}><Text style={styles.textHeader}>Life span</Text></View>
-      <View style={styles.tabContent}><Text style={styles.textContent}>{lifespan}</Text></View>
+          <View style={styles.tabHeader}><Text style={styles.textHeader}>Bloom period</Text></View>
+          <View style={styles.tabContent}><Text style={styles.textContent}>{bloom}</Text></View>
 
-      <View style={styles.tabHeader}><Text style={styles.textHeader}>Bloom period</Text></View>
-      <View style={styles.tabContent}><Text style={styles.textContent}>{bloom}</Text></View>
+          <View style={styles.tabHeader}><Text style={styles.textHeader}>Growth period</Text></View>
+          <View style={styles.tabContent}><Text style={styles.textContent}>{gperiod}</Text></View>
 
-      <View style={styles.tabHeader}><Text style={styles.textHeader}>Growth period</Text></View>
-      <View style={styles.tabContent}><Text style={styles.textContent}>{gperiod}</Text></View>
+          <View style={styles.tabHeader}><Text style={styles.textHeader}>Mature height</Text></View>
+          <View style={styles.tabContent}><Text style={styles.textContent}>{mheight} cm</Text></View>
 
-      <View style={styles.tabHeader}><Text style={styles.textHeader}>Mature height</Text></View>
-      <View style={styles.tabContent}><Text style={styles.textContent}>{mheight} cm</Text></View>
+          <View style={styles.tabHeader}><Text style={styles.textHeader}>Toxicity</Text></View>
+          <View style={styles.tabContent}><Text style={styles.textContent}>{toxicity}</Text></View>
 
-      <View style={styles.tabHeader}><Text style={styles.textHeader}>Toxicity</Text></View>
-      <View style={styles.tabContent}><Text style={styles.textContent}>{toxicity}</Text></View>
-
-      {/* <Image style={styles.image} source={stringify(this.images())} /> */}
-
+          <View style={styles.space}/>
 
       
-      </View>
+        </View>
       </View>
     </ScrollView>
      );}
