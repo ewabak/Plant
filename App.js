@@ -4,6 +4,7 @@ import Home from './Home';
 import Catalog from './Catalog';
 import CatalogPlant from './CatalogPlant';
 import NewPlant from './NewPlant';
+import Search from './Search';
 
 
 
@@ -14,11 +15,12 @@ const AppNavigator = createStackNavigator(
     navigationOptions: { header: null } },
   Catalog: { screen: Catalog,
     navigationOptions: { header: null } },
-    CatalogPlant: { screen: CatalogPlant,
-      navigationOptions: { header: null } },
-      NewPlant: { screen: NewPlant,
-        navigationOptions: { header: null } },
-
+  CatalogPlant: { screen: CatalogPlant,
+    navigationOptions: { header: null } },
+  NewPlant: { screen: NewPlant,
+    navigationOptions: { header: null } },
+  Search: { screen: Search,
+    navigationOptions: { header: null } },
 
 },
 

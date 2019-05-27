@@ -89,7 +89,7 @@ var styles = StyleSheet.create({
         },
         cardText: {
           fontSize:20,
-          textAlign: 'center'
+          textAlign: 'center',
         },
         buttonGreen: {
           color: "#009C73",

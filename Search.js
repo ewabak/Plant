@@ -13,19 +13,26 @@ import {
 } from 'react-native';
 import styles from "./styles";
 import { Input, Card, Button } from 'react-native-elements';
+import ThreeAxisSensor from 'expo-sensors/build/ThreeAxisSensor';
+import axios from 'axios';
+import { Container, Content } from 'native-base';
+import Searcher from './Searcher';
 
-class Catalog extends React.Component {
-  
-    constructor(props) {
-      super(props);
-      this.state = {
-        loading: true,
-        dataSource :[]
-       };
-     }
+class Search extends React.Component {
+
+    state = {
+      searchPlant: '',
+      plantData: {}
+    }
+
+    plantSearch = () => {
+
+      Keyboard.dismiss()
+      const plantName = this.state.searchPlant.toLowerCase();
+
+      const query = 'https://trefle.io//api/plants?q=' + plantName + '&token=Ymgra1d5M1dCaUlmMWgyME9qNVhTdz09&fbclid=IwAR3FY03yEVzS77Ca1Q9TIbMdMlJhXtpOjhcqcD-MJHAYJXCNcdA3UrJ2p9Q'
      
-     componentDidMount(){
-      fetch("https://trefle.io//api/plants?token=Ymgra1d5M1dCaUlmMWgyME9qNVhTdz09&fbclid=IwAR3FY03yEVzS77Ca1Q9TIbMdMlJhXtpOjhcqcD-MJHAYJXCNcdA3UrJ2p9Q")
+      fetch(query)
       .then(response => response.json())
      .then((responseJson)=> {
        this.setState({
@@ -34,7 +41,9 @@ class Catalog extends React.Component {
        })
      })
      .catch(error=>console.log(error)) //to catch the errors if any
-     }
+    }
+     
+  
 
      
      renderItem=(data)=>
@@ -68,18 +77,28 @@ class Catalog extends React.Component {
      <View style={styles.white}>
 
 
-     
-     <Button title="Search a plant" type="solid" buttonStyle = {{backgroundColor:'#009C73'}} onPress={() => this.props.navigation.navigate('Search')}/>
-
-     <View style={styles.space}/>
-
+<Container>
+  <Searcher
+      value={this.state.searchPlant}
+      onChangeText={(searchPlant) => this.setState({ searchPlant})} 
+      plantSearch={this.plantSearch}/>
       
-     <View> 
+      <View> 
       <FlatList
          data= {this.state.dataSource}
          renderItem= {item=> this.renderItem(item)}
          keyExtractor= {item=>item.id.toString()} />
       </View>
+
+<Content></Content>
+</Container>
+
+
+
+
+
+ 
+     
       </View>
     </ScrollView>
      );}
@@ -87,32 +106,4 @@ class Catalog extends React.Component {
 
 }
 
-export default Catalog;
-
-
-/*
-
-renderItem = (data)=>{
-  const {navigation} = this.props;
- return (
-         <TouchableOpacity 
-          style={styles.card} 
-          onPress={() => {
-            navigation.navigate('CatalogPlant', data.item.link)
-          }}
-         >
-           <Image 
-            style={styles.cardImage} 
-            source={require('./images/flower.jpg')}
-           />
-           <Text 
-            style={styles.cardText} 
-           >
-            {data.item.scientific_name}
-           </Text> 
-         </TouchableOpacity>
- )
- 
- }
-
-*/
+export default Search;

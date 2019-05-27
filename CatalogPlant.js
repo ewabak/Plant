@@ -13,19 +13,7 @@ import {
 import styles from "./styles";
 import { Button, ListItem, colors } from 'react-native-elements';
 import { withNavigation } from 'react-navigation';
-import {Constants} from 'expo';
-import Firebase from 'firebase';
 
-const firebaseConfig = {
-  apiKey: "AIzaSyDWo5CjGYhk9wlO2n4jlywuuGIikoQQBXo",
-  authDomain: "bai-plant-898e9.firebaseapp.com",
-  databaseURL: "https://bai-plant-898e9.firebaseio.com",
-  projectId: "bai-plant-898e9",
-  storageBucket: "bai-plant-898e9.appspot.com",
-  messagingSenderId: "73606555056",
-  appId: "1:73606555056:web:19d5e53b6fbd61d9"
-};
-firebase.initializeApp(firebaseConfig);
 
 class CatalogPlant extends React.Component {
 
@@ -40,7 +28,7 @@ class CatalogPlant extends React.Component {
   const { navigation } = this.props;
   const linkPlant = navigation.getParam('linkPlant');
 
-    fetch('https://trefle.io/api/plants/103505?token=Ymgra1d5M1dCaUlmMWgyME9qNVhTdz09&fbclid=IwAR3FY03yEVzS77Ca1Q9TIbMdMlJhXtpOjhcqcD-MJHAYJXCNcdA3UrJ2p9Q')
+    fetch(linkPlant + '?token=Ymgra1d5M1dCaUlmMWgyME9qNVhTdz09&fbclid=IwAR3FY03yEVzS77Ca1Q9TIbMdMlJhXtpOjhcqcD-MJHAYJXCNcdA3UrJ2p9Q')
     .then(response => response.json())
    .then((responseJson)=> {
      this.setState({
@@ -49,18 +37,6 @@ class CatalogPlant extends React.Component {
    })
    .catch(error=>console.log(error)) 
    }
-
- //  renderItem=(data)=>
-
-   //  <TouchableOpacity style={styles.list}>
-     //       <Text style={styles.lightText}>{data.item.varieties[0].common_name}</Text> 
-   //  </TouchableOpacity>
-
-//    images=() => {
-//     if(this.state.data.images)
-//         return this.state.data.images.map(images => images.url)
-// }
-
 
 
 render(){

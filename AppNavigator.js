@@ -3,18 +3,19 @@ import Home from './Home';
 import Catalog from './Catalog';
 import CatalogPlant from './CatalogPlant';
 import NewPlant from './NewPlant';
-
-
+import Search from './Search';
 
 const AppNavigator = createStackNavigator({
   Home: { screen: Home,
    },
   Catalog: { screen: Catalog},
   
-  CatalogPlant: {screen: CatalogPlant}
-,
-NewPlant: {screen: NewPlant
-}}
+  CatalogPlant: {screen: CatalogPlant},
+  
+  NewPlant: {screen: NewPlant},
+
+  Search: {screen: Search}
+}
 );
 const App = createStackNavigator({ Home: MainTabNavigator }, { headerMode: 'none' });
 
