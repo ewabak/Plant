@@ -31,6 +31,17 @@ class NewPlant extends React.Component {
      <View style={styles.space}/>
      
 <Button title="Search"   type="outline" buttonStyle = {{width:100, borderColor:'#009C73', justifyContent: 'center', alignItems: 'center'}} titleStyle={{color:'#00000'}}/>
+
+<Text />
+<Text />
+<Text />
+<Text />
+<Text />
+<Button title="Add plant manually" type="solid" buttonStyle = {{backgroundColor:'#009C73'}} />
+<Text />
+<Text />
+<Text />
+<Button title="Browse plants catalog" type="solid" buttonStyle = {{backgroundColor:'#009C73'}} onPress={() => this.props.navigation.navigate('Catalog')}/>
 <View style={styles.space}/>
 
       </View>
