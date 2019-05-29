@@ -13,38 +13,9 @@ import {
 import styles from "./styles";
 import { Button, ListItem, colors } from 'react-native-elements';
 import { withNavigation } from 'react-navigation';
-import * as firebase from 'firebase';
 
-var currentUser
+
 class CatalogPlant extends React.Component {
-
-  addToFavourites = async(scname, coname, obrazek,moisture,drought,fcolor,lifespan,bloom,gperiod,mheight,toxicity) =>{
-
-    //get current user
-    currentUser = await firebase.auth().currentUser
-
-    //get unique key
-    var databaseRef = await firebase.database().ref(currentUser.uid).child('plantList').push()
-
-    //update plant name at the unique key
-    databaseRef.set({
-      'namePlant': scname,
-      'nameC': coname,
-      'pcURL': obrazek,
-      'moisture': moisture,
-      'drought': drought,
-      'fcolor': fcolor,
-      'lifespan': lifespan,
-      'bloom':bloom,
-      'gperiod': gperiod,
-      'mheight': mheight,
-      'toxicity': toxicity
-
-    })
-
-
-  }
-
 
   constructor(props){
     super(props);
@@ -97,8 +68,7 @@ render(){
 
           <Image source={image} style={styles.cardImage} />
           <Text></Text>
-          <Button title="Add to your list" type="solid" buttonStyle = {{backgroundColor:'#009C73'}} onPress={() => this.addToFavourites(scname, coname, obrazek,moisture,drought,fcolor,lifespan,bloom,gperiod,mheight,toxicity)}/>
-          <Text></Text>
+
           <View style={styles.tabHeader}><Text style={styles.textHeader}>Scientific name</Text></View>
           <View style={styles.tabContent}><Text style={styles.textContent}>{scname}</Text></View>
           
