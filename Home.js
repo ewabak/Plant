@@ -43,8 +43,6 @@ render(){
     </ScrollView>
      );}
 
-//<Button title="Search"   type="outline" buttonStyle = {{width:100, borderColor:'#009C73'}} titleStyle={{color:"#00000"}}/>
-
 }
 
 export default Home;
