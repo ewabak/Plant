@@ -48,14 +48,3 @@ render(){
 }
 
 export default Home;
-
-
-
-/* 
-
-<Button
-                    title="Go to catalog"
-                    onPress={() => this.props.navigation.navigate('Catalog')}
-                />
-
-*/

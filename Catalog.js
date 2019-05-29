@@ -67,13 +67,10 @@ class Catalog extends React.Component {
      </TouchableOpacity>
      <View style={styles.white}>
 
-
-     
      <Button title="Search a plant" type="solid" buttonStyle = {{backgroundColor:'#009C73'}} onPress={() => this.props.navigation.navigate('Search')}/>
 
      <View style={styles.space}/>
 
-      
      <View> 
       <FlatList
          data= {this.state.dataSource}
@@ -83,7 +80,6 @@ class Catalog extends React.Component {
       </View>
     </ScrollView>
      );}
-
 
 }
 
