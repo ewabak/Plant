@@ -5,6 +5,7 @@ import CatalogPlant from './CatalogPlant';
 import NewPlant from './NewPlant';
 import Search from './Search';
 import Registration from './Registration';
+import Watering from './Watering';
 
 const AppNavigator = createStackNavigator({
   Home: { screen: Home },
@@ -16,6 +17,8 @@ const AppNavigator = createStackNavigator({
   NewPlant: {screen: NewPlant},
 
   Search: {screen: Search},
+
+  Watering: {screen: Watering},
 
   Registration: {screen: Registration}
 }

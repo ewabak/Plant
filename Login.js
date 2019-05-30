@@ -8,7 +8,7 @@ import { StyleSheet, Text, View,
 import styles from "./styles";
 import { Input, Card, Button } from 'react-native-elements';
 
-export default class Login extends React.Component {
+export class Login extends React.Component {
     
     constructor(props) {
         super(props);
@@ -36,12 +36,6 @@ export default class Login extends React.Component {
 
 }
 
+export default Login;
 
-/*if(this.state.loading){
-       return( 
-         <View style={styles.loader}> 
-         <ActivityIndicator size="large" color="#0c9"/>
-         </View>
-     )}
 
-     */

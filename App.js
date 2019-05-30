@@ -6,6 +6,9 @@ import CatalogPlant from './CatalogPlant';
 import NewPlant from './NewPlant';
 import Search from './Search';
 import Login from './Login';
+import SignUp from './SignUp';
+import ForgotPassword from './ForgotPassword';
+import Watering from './Watering';
 import * as firebase from 'firebase';
 import config from "./config";
 
@@ -30,6 +33,8 @@ const AppNavigator = createStackNavigator(
     navigationOptions: { header: null } },
   ForgotPassword: { screen: ForgotPassword,
     navigationOptions: { header: null } },
+    Watering: { screen: Watering,
+      navigationOptions: { header: null } },
 },
 
 {

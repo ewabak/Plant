@@ -8,7 +8,7 @@ import { StyleSheet, Text, View,
 import styles from "./styles";
 import { Input, Card, Button } from 'react-native-elements';
 
-export default class Login extends React.Component {
+export class ForgotPassword extends React.Component {
     
     constructor(props) {
         super(props);
@@ -36,6 +36,7 @@ export default class Login extends React.Component {
 
 }
 
+export default ForgotPassword;
 
 /*if(this.state.loading){
        return( 

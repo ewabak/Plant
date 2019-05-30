@@ -36,11 +36,10 @@ class Catalog extends React.Component {
      .catch(error=>console.log(error)) //to catch the errors if any
      }
 
-     
+          
      renderItem=(data)=>
 
      <TouchableOpacity onPress={() => this.props.navigation.navigate('CatalogPlant',{linkPlant: data.item.link})} >
-            <Image style={styles.cardImage} source={require('./images/flower.jpg')}/>
             <View style={styles.tabHeader}><Text style={styles.textContent}>{data.item.scientific_name}</Text></View>
             <View style={styles.tabHeader}><Text style={styles.textContent}>{data.item.common_name}</Text></View>
             <View style={styles.space}/>
@@ -68,7 +67,9 @@ class Catalog extends React.Component {
      </TouchableOpacity>
      <View style={styles.white}>
 
-     <Button title="Search a plant" type="solid" buttonStyle = {{backgroundColor:'#009C73'}} onPress={() => this.props.navigation.navigate('Search')}/>
+     <Button title="Search a plant" type="solid" 
+        buttonStyle = {{backgroundColor:'#009C73', height:50, marginBottom:3}} 
+        onPress={() => this.props.navigation.navigate('Search')}/>
 
      <View style={styles.space}/>
 
@@ -111,5 +112,6 @@ renderItem = (data)=>{
  )
  
  }
+            <Image style={styles.cardImage} source={require('./images/lis.png')}/>
 
 */
