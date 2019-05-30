@@ -95,7 +95,7 @@ var styles = StyleSheet.create({
           color: "#009C73",
           justifyContent: "space-between",
           margin: 50
-        }
+        },
 })
 
 module.exports = styles;

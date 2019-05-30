@@ -5,8 +5,11 @@ import Catalog from './Catalog';
 import CatalogPlant from './CatalogPlant';
 import NewPlant from './NewPlant';
 import Search from './Search';
+import Login from './Login';
+import * as firebase from 'firebase';
+import config from "./config";
 
-
+firebase.auth().signInWithEmailAndPassword("gabriela.lenard0@gmail.com","password")
 
 const AppNavigator = createStackNavigator(
   
@@ -21,7 +24,12 @@ const AppNavigator = createStackNavigator(
     navigationOptions: { header: null } },
   Search: { screen: Search,
     navigationOptions: { header: null } },
-
+  Login: { screen: Login,
+    navigationOptions: { header: null } },
+  SignUp: { screen: SignUp,
+    navigationOptions: { header: null } },
+  ForgotPassword: { screen: ForgotPassword,
+    navigationOptions: { header: null } },
 },
 
 {
@@ -33,6 +41,12 @@ const AppNavigator = createStackNavigator(
 const AppContainer = createAppContainer(AppNavigator);
 
 export default class App extends Component {
+
+  constructor (props) {
+    super(props);
+
+    if (!firebase.apps.length) { firebase.initializeApp(config.FirebaseConfig); }
+}
   render() {
     return <AppContainer  />;
   }

@@ -23,10 +23,8 @@ import {Container, Content, ListItem} from 'native-base';
 class Home extends React.Component {
 
     componentDidMount(){
-
-        firebase.auth().signInWithEmailAndPassword("gabriela.lenard0@gmail.com","password")
     }     
-
+    
 
     // constructor(props){
     //     super(props)
@@ -70,6 +68,12 @@ render(){
             <Button title="Watering schedule" type="solid" buttonStyle = {{backgroundColor:'#009C73'}} />
             <Text></Text>
             <Button title="Plants catalog" type="solid" buttonStyle = {{backgroundColor:'#009C73'}} onPress={() => this.props.navigation.navigate('Catalog')} />
+            <Text></Text>
+            <Button title="testuje sobie login" type="solid" buttonStyle = {{backgroundColor:'#009C73'}} onPress={() => this.props.navigation.navigate('Login')} />
+            <Text></Text>
+            <Button title="testuje sobie signup" type="solid" buttonStyle = {{backgroundColor:'#009C73'}} onPress={() => this.props.navigation.navigate('SignUp')} />
+            <Text></Text>
+            <Button title="testuje sobie fpswd" type="solid" buttonStyle = {{backgroundColor:'#009C73'}} onPress={() => this.props.navigation.navigate('ForgotPassword')} />
 
             <Text></Text>
             <Text></Text>
