@@ -14,7 +14,6 @@ import {
 import styles from "./styles";
 import { Input, Card, Button } from 'react-native-elements';
 import ThreeAxisSensor from 'expo-sensors/build/ThreeAxisSensor';
-import axios from 'axios';
 import { Container, Content } from 'native-base';
 import Searcher from './Searcher';
 
