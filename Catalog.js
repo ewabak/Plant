@@ -40,6 +40,7 @@ class Catalog extends React.Component {
      renderItem=(data)=>
 
      <TouchableOpacity onPress={() => this.props.navigation.navigate('CatalogPlant',{linkPlant: data.item.link})} >
+            <Image style={styles.cardImage} source={require('./images/flower.jpg')}/>
             <View style={styles.tabHeader}><Text style={styles.textContent}>{data.item.scientific_name}</Text></View>
             <View style={styles.tabHeader}><Text style={styles.textContent}>{data.item.common_name}</Text></View>
             <View style={styles.space}/>
