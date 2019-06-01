@@ -15,7 +15,7 @@ const StartNavigator = createSwitchNavigator({
   SignUp: { screen: SignUp },
   ForgotPassword: { screen: ForgotPassword },
 
-  Main: { screen: Home }
+  // Main: { screen: Home }
 }
 );
 
