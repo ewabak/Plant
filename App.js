@@ -12,6 +12,7 @@ import Watering from './Watering';
 import * as firebase from 'firebase';
 import config from "./config";
 
+
 firebase.auth().signInWithEmailAndPassword("gabriela.lenard0@gmail.com","password")
 
 const AppNavigator = createStackNavigator(
@@ -33,8 +34,8 @@ const AppNavigator = createStackNavigator(
     navigationOptions: { header: null } },
   ForgotPassword: { screen: ForgotPassword,
     navigationOptions: { header: null } },
-    Watering: { screen: Watering,
-      navigationOptions: { header: null } },
+  Watering: { screen: Watering,
+    navigationOptions: { header: null } },
 },
 
 {
