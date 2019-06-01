@@ -99,7 +99,6 @@ _handleFinishLoading = () => {
   this.setState({ isLoadingComplete: true });
 };
 
-}
 
 const styles = StyleSheet.create({
   container: {
