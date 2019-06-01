@@ -9,7 +9,7 @@ import {
     FlatList,
     Image,
     ScrollView,
-    Keyboard
+    
 } from 'react-native';
 import { Input, Card, Button } from 'react-native-elements';
 import { Item } from 'native-base';

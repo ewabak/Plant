@@ -21,6 +21,23 @@ export default class Login extends React.Component {
 
         }
     }
+     render(){
+
+     return(
+         
+      <ScrollView style={styles.containerxd}>
+          <View style={styles.textStyle}></View>
+            <View style={styles.white}>
+            <Input placeholder='Email address'/>
+            <View style={styles.space}/>
+            <Input placeholder='Password'/>
+            <View style={styles.space}/>
+            <Input placeholder='Confirm password'/>
+            <View style={styles.space}/>
+        <Button title="Register"   type="outline" buttonStyle = {{width:100, borderColor:'#009C73', justifyContent: 'center', alignItems: 'center'}} titleStyle={{color:'#000'}}/>
+            <View style={styles.space}/></View>
+    </ScrollView>
+     );}
 
     onLoginPress = () => {
         firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)

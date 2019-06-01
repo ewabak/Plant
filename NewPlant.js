@@ -30,7 +30,7 @@ class NewPlant extends React.Component {
      <Input placeholder='Enter plant name'/>
      <View style={styles.space}/>
      
-<Button title="Search"   type="outline" buttonStyle = {{width:100, borderColor:'#009C73', justifyContent: 'center', alignItems: 'center'}} titleStyle={{color:'#00000'}}/>
+<Button title="Search"   type="outline" buttonStyle = {{width:100, borderColor:'#009C73', justifyContent: 'center', alignItems: 'center'}} titleStyle={{color:'#000'}}/>
 <View style={styles.space}/>
 
       </View>

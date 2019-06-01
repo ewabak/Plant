@@ -9,10 +9,19 @@ import NewPlant from './NewPlant';
 import Search from './Search';
 import Login from './Login';
 import SignUp from './SignUp';
-import ForgotPassword from './ForgotPassword';
 import Watering from './Watering';
+import ForgotPassword from './ForgotPassword';
 import * as firebase from 'firebase';
 import config from "./config";
+import { YellowBox } from 'react-native';
+import _ from 'lodash';
+
+YellowBox.ignoreWarnings(['Setting a timer']);
+const _console = _.clone(console);
+console.warn = message => {
+  if (message.indexOf('Setting a timer') <= -1) {
+    _console.warn(message);
+  }};
 
 
 firebase.auth().signInWithEmailAndPassword("gabriela.lenard0@gmail.com","password")
@@ -62,24 +71,9 @@ onAuthStateChanged = (user) => {
   this.setState({isAuthenticationReady: true});
   this.setState({isAuthenticated: !!user});
 }
-
-render() {
-  if ( (!this.state.isLoadingComplete || !this.state.isAuthenticationReady) && !this.props.skipLoadingScreen) {
-    return (
-      <AppLoading
-        startAsync={this._loadResourcesAsync}
-        onError={this._handleLoadingError}
-        onFinish={this._handleFinishLoading}
-      />
-    );
-  } else {
-    return (
-      <View style={styles.container}>
-        {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-        {Platform.OS === 'android' && <View style={styles.statusBarUnderlay} />}
-        {(this.state.isAuthenticated) ? <Home /> : <AppNavigator />}
-      </View>
-    );
+  render() {
+    
+    return <AppContainer  />;
   }
 }
 _loadResourcesAsync = async () => {

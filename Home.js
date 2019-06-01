@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
 import {
-    Platform,
-    StyleSheet,
-    ActivityIndicator,
     Text,
     View,
     TouchableOpacity,
-    FlatList,
     Image,
     ScrollView,
     ListView
@@ -16,15 +12,14 @@ import { Button } from 'react-native-elements';
 import * as firebase from 'firebase';
 import {Container, Content, ListItem} from 'native-base';
 
+
 // lista kwiatków
 var data = []
 var currentUser
 
 class Home extends React.Component {
     
-    componentDidMount(){
-    }     
-    
+
     
     constructor(props){
        super(props)
@@ -35,26 +30,27 @@ class Home extends React.Component {
             listViewData : data
         }
     }
+
     componentDidMount(){
-
-        this.getPlants()
-    }
-
-    getPlants = async()=>{
-
-        currentUser = await firebase.auth().currentUser
-
-        var that = this
-
-        firebase.database().ref(currentUser.uid).child('plantList').on('child_added',function(data){
-
-            var newData = [...that.state.listViewData]
-            newData.push(data)
-
-            that.setState({ listViewData: newData})
+        firebase.auth().onAuthStateChanged((user) => {
+      
+          if (user != null) {
+            var that = this
+            
+             firebase.database().ref(user.uid).child('plantList').on('child_added',function(data){
+      
+                var newData = [...that.state.listViewData]
+                newData.push(data)
+      
+                that.setState({ listViewData: newData})
+            })
+          }
         })
-    }
+      }
+
 render(){
+
+    
      return(
       <ScrollView style={styles.containerxd}>
       <TouchableOpacity style={styles.textStyle}>
@@ -70,7 +66,8 @@ render(){
             <Text></Text>
             <Button title="Watering schedule" type="solid" 
                 buttonStyle = {{backgroundColor:'#009C73', height:50, marginTop:3, marginBottom:3}} 
-                onPress={() => this.props.navigation.navigate('Watering')}/>
+                onPress={() => this.props.navigation.navigate('Watering')}
+                />
             <Text></Text>
             <Button title="Plants catalog" type="solid" 
                 buttonStyle = {{backgroundColor:'#009C73', height:50, marginTop:3, marginBottom:3}} 
@@ -85,7 +82,9 @@ render(){
             <Text></Text>
             <Text></Text>
             <Text></Text>
-            <Container style={{ flex: 1, backgroundColor: 'yellow'}}>
+
+
+            <Container style={{ flex: 1, backgroundColor: 'white'}}>
                 <Content>
                     <ListView
                         enableEmptySections
@@ -109,15 +108,6 @@ render(){
 
     </ScrollView>
      );}
-
-
-
-
-
-     
-
-//<Button title="Search"   type="outline" buttonStyle = {{width:100, borderColor:'#009C73'}} titleStyle={{color:"#00000"}}/>
-
 }
 
 export default Home;
