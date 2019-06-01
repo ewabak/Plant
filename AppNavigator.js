@@ -17,8 +17,9 @@ const AppNavigator = createStackNavigator({
   NewPlant: {screen: NewPlant},
 
   Search: {screen: Search},
-
+  
   Watering: {screen: Watering},
+
 
   Registration: {screen: Registration}
 }

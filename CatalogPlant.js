@@ -38,7 +38,7 @@ class CatalogPlant extends React.Component {
       'bloom':bloom,
       'gperiod': gperiod,
       'mheight': mheight,
-      'toxicity': toxicity
+      'toxicity': toxicity,
 
     })
 
@@ -104,7 +104,10 @@ render(){
           
           <View style={styles.tabHeader}><Text style={styles.textHeader}>Common name</Text></View>
           <View style={styles.tabContent}><Text style={styles.textContent}>{coname}</Text></View>
-          
+
+          <View style={styles.tabHeader}><Text style={styles.textHeader}>Plant ID</Text></View>
+          <View style={styles.tabContent}><Text style={styles.textContent}>{plantid}</Text></View>
+
           <View style={styles.tabHeader}><Text style={styles.textHeader}>Moisture use</Text></View>
           <View style={styles.tabContent}><Text style={styles.textContent}>{moisture}</Text></View>
 
@@ -129,6 +132,8 @@ render(){
           <View style={styles.tabHeader}><Text style={styles.textHeader}>Toxicity</Text></View>
           <View style={styles.tabContent}><Text style={styles.textContent}>{toxicity}</Text></View>
 
+
+
           <View style={styles.space}/>
 
       
@@ -141,7 +146,6 @@ render(){
 
 export default CatalogPlant;
 
-//            <Text>{(linkPlant)}</Text>
 
 
 /**

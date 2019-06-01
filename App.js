@@ -7,10 +7,19 @@ import NewPlant from './NewPlant';
 import Search from './Search';
 import Login from './Login';
 import SignUp from './SignUp';
-import ForgotPassword from './ForgotPassword';
 import Watering from './Watering';
+import ForgotPassword from './ForgotPassword';
 import * as firebase from 'firebase';
 import config from "./config";
+import { YellowBox } from 'react-native';
+import _ from 'lodash';
+
+YellowBox.ignoreWarnings(['Setting a timer']);
+const _console = _.clone(console);
+console.warn = message => {
+  if (message.indexOf('Setting a timer') <= -1) {
+    _console.warn(message);
+  }};
 
 firebase.auth().signInWithEmailAndPassword("gabriela.lenard0@gmail.com","password")
 
@@ -35,6 +44,7 @@ const AppNavigator = createStackNavigator(
     navigationOptions: { header: null } },
     Watering: { screen: Watering,
       navigationOptions: { header: null } },
+
 },
 
 {
@@ -53,6 +63,7 @@ export default class App extends Component {
     if (!firebase.apps.length) { firebase.initializeApp(config.FirebaseConfig); }
 }
   render() {
+    
     return <AppContainer  />;
   }
 }

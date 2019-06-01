@@ -29,7 +29,7 @@ export class SignUp extends React.Component {
             <View style={styles.space}/>
             <Input placeholder='Confirm password'/>
             <View style={styles.space}/>
-        <Button title="Register"   type="outline" buttonStyle = {{width:100, borderColor:'#009C73', justifyContent: 'center', alignItems: 'center'}} titleStyle={{color:'#00000'}}/>
+        <Button title="Register"   type="outline" buttonStyle = {{width:100, borderColor:'#009C73', justifyContent: 'center', alignItems: 'center'}} titleStyle={{color:'#000'}}/>
             <View style={styles.space}/></View>
     </ScrollView>
      );}
