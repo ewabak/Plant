@@ -3,46 +3,84 @@ import { StyleSheet, Text, View,
     TouchableOpacity,
     FlatList,
     Image,
-    ScrollView
+    ScrollView, 
+    TextInput,
+    Alert
 } from 'react-native';
-import styles from "./styles";
+import { NavigationActions } from 'react-navigation';
 import { Input, Card, Button } from 'react-native-elements';
+import * as firebase from 'firebase';
 
-export class SignUp extends React.Component {
+export default class SignUp extends React.Component {
     
     constructor(props) {
         super(props);
         this.state= {
-
+            email: "",
+            password: "",
+            passwordConfirm: ""
         }
     }
-     render(){
-         
-     return(
-         
-      <ScrollView style={styles.containerxd}>
-          <View style={styles.textStyle}></View>
-            <View style={styles.white}>
-            <Input placeholder='Email address'/>
-            <View style={styles.space}/>
-            <Input placeholder='Password'/>
-            <View style={styles.space}/>
-            <Input placeholder='Confirm password'/>
-            <View style={styles.space}/>
-        <Button title="Register"   type="outline" buttonStyle = {{width:100, borderColor:'#009C73', justifyContent: 'center', alignItems: 'center'}} titleStyle={{color:'#000'}}/>
-            <View style={styles.space}/></View>
-    </ScrollView>
-     );}
+    
+    onSignUpPress = () => {
+        if (this.state.password !== this.state.passwordConfirm) {
+            Alert.alert("Passwords do not match");
+            return;
+        }
 
+        firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
+            .then(() => { }, (error) => { Alert.alert(error.message); });
+    }
+
+    onBackToLoginPress = () => {
+        this.props.navigation.navigate('Login');
+    }
+
+    render() {
+        return (
+            <View style={{paddingTop:50, alignItems:"center"}}>
+
+                <Text>Sign Up</Text> 
+
+                <TextInput style={{width: 200, height: 40, borderWidth: 1}}
+                    value={this.state.email}
+                    onChangeText={(text) => { this.setState({email: text}) }}
+                    placeholder="Email"
+                    keyboardType="email-address"
+                    autoCapitalize="none"
+                    autoCorrect={false}
+                />
+
+                <View style={{paddingTop:10}} />
+
+                <TextInput style={{width: 200, height: 40, borderWidth: 1}}
+                    value={this.state.password}
+                    onChangeText={(text) => { this.setState({password: text}) }}
+                    placeholder="Password"
+                    secureTextEntry={true}
+                    autoCapitalize="none"
+                    autoCorrect={false}
+                />
+                <View style={{paddingTop:10}} />
+
+                <TextInput style={{width: 200, height: 40, borderWidth: 1}}
+                    value={this.state.passwordConfirm}
+                    onChangeText={(text) => { this.setState({passwordConfirm: text}) }}
+                    placeholder="Password"
+                    secureTextEntry={true}
+                    autoCapitalize="none"
+                    autoCorrect={false}
+                />
+
+                <Button title="Sign Up" onPress={this.onSignUpPress} />
+                <Button title="Back to Login" onPress={this.onBackToLoginPress} />
+                </View>
+        );
+    }
+         
 }
 
-export default SignUp;
 
-/*if(this.state.loading){
-       return( 
-         <View style={styles.loader}> 
-         <ActivityIndicator size="large" color="#0c9"/>
-         </View>
-     )}
+const styles = StyleSheet.create({
 
-     */
+});
