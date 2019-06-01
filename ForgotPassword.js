@@ -30,6 +30,7 @@ export default class ForgotPassword extends React.Component {
     }
 
     onBackToLoginPress = () => {
+
         this.props.navigation.navigate('Login');
     }
 

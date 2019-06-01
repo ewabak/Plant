@@ -31,6 +31,6 @@ const StartNavigator = createSwitchNavigator({
 // }
 // );
 
-// const App = createSwitchNavigator({ Home: MainNavigator }, { headerMode: 'none' });
+const App = createSwitchNavigator({ Home: MainNavigator }, { headerMode: 'none' });
 
 export default App;
