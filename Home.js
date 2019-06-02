@@ -47,6 +47,37 @@ class Home extends React.Component {
           }
         })
       }
+      
+onLackOfLoginAdd = () => {
+    firebase.auth().onAuthStateChanged((user) => {
+        if (user = null) {
+            this.props.navigation.navigate('NewPlant');
+        } else {
+            this.props.navigation.navigate('Login');
+        }
+      });
+}
+
+onLackOfLoginWatering = () => {
+    firebase.auth().onAuthStateChanged((user) => {
+        if (user = null) {
+            this.props.navigation.navigate('Watering');
+        } else {
+            this.props.navigation.navigate('Login');
+        }
+      });
+}
+
+onLackOfLoginPlants = () => {
+    firebase.auth().onAuthStateChanged((user) => {
+        if (user = null) {
+            this.props.navigation.navigate('Catalog');
+        } else {
+            this.props.navigation.navigate('Login');
+        }
+      });
+}
+      
 
 render(){
 
@@ -64,16 +95,15 @@ render(){
          
             <Button title="Add a new plant" type="solid" 
                 buttonStyle = {{backgroundColor:'#009C73', height:50, marginBottom:3}} 
-                onPress={() => this.props.navigation.navigate('NewPlant')}/>
+                onPress={this.onLackOfLoginAdd} />
             <Text></Text>
             <Button title="Watering schedule" type="solid" 
                 buttonStyle = {{backgroundColor:'#009C73', height:50, marginTop:3, marginBottom:3}} 
-                onPress={() => this.props.navigation.navigate('Watering')}
-                />
+                onPress={this.onLackOfLoginWatering} />
             <Text></Text>
             <Button title="Plants catalog" type="solid" 
                 buttonStyle = {{backgroundColor:'#009C73', height:50, marginTop:3, marginBottom:3}} 
-                onPress={() => this.props.navigation.navigate('Catalog')} />
+                onPress={this.onLackOfLoginPlants} />
             <Text></Text>
             
             <Button title="testuje sobie login" type="solid" buttonStyle = {{backgroundColor:'#009C73'}} onPress={() => this.props.navigation.navigate('Login')} />

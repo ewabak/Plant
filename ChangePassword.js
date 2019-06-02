@@ -16,11 +16,6 @@ export default class ChangePassword extends React.Component {
     };
   }
 
-  // Occurs when signout is pressed...
-  onSignoutPress = () => {
-    firebase.auth().signOut();
-  }
-
   // Reauthenticates the current user and returns a promise...
   reauthenticate = (currentPassword) => {
     var user = firebase.auth().currentUser;
@@ -41,7 +36,6 @@ export default class ChangePassword extends React.Component {
   render() {
     return (
       <ScrollView style={{flex: 1, flexDirection: "column", paddingVertical: 50, paddingHorizontal: 10,}}>
-        <Button title="Sign out" onPress={this.onSignoutPress} />
 
         <TextInput style={styles.textInput} value={this.state.currentPassword}
           placeholder="Current Password" autoCapitalize="none" secureTextEntry={true}

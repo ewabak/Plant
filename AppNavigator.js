@@ -11,30 +11,30 @@ import Settings from '/Settings';
 import Login from './Login';
 import SignUp from './SignUp';
 import ForgotPassword from './ForgotPassword';
+import FavPlant from './FavPlant';
+import ChangePassword from './ChangePassword';
 
-const StartNavigator = createSwitchNavigator({  
-  Login: { screen: Login },
-  SignUp: { screen: SignUp },
-  ForgotPassword: { screen: ForgotPassword },
 
-  Main: { screen: Home }
-}
-);
+ const AppNavigator = createStackNavigator({
+   Login: {screen: Login},
+   SignUp: {screen: SignUp},
+   ForgotPassword: {screen: ForgotPassword},
 
-// const AppNavigator = createStackNavigator({
+   Home: { screen: Home },
+   Catalog: { screen: Catalog},
+   CatalogPlant: {screen: CatalogPlant},
+   NewPlant: {screen: NewPlant},
+   Search: {screen: Search},
+   Watering: {screen: Watering},
+   Registration: {screen: Registration},
+   FavPlant: {screen: FavPlant},
+   Burger: {screen: Burger},
+   Settings: {screen: Settings},
+   ChangePassword: {screen: ChangePassword}
 
-//   Home: { screen: Home },
-//   Catalog: { screen: Catalog},
-//   CatalogPlant: {screen: CatalogPlant},
-//   NewPlant: {screen: NewPlant},
-//   Search: {screen: Search},
-//   Watering: {screen: Watering},
-//   Registration: {screen: Registration}
-//   Burger: {screen: Burger}
-//   Settings: {screen: Settings}
-// }
-// );
+ }
+ );
 
-// const App = createSwitchNavigator({ Home: MainNavigator }, { headerMode: 'none' });
+ const AppNavigator = createStackNavigator({ Home: MainNavigator }, { headerMode: 'none' });
 
-export default App;
+export default AppNavigator;

@@ -23,7 +23,7 @@ export default class Settings extends React.Component {
             
                <Button title="Change password" type="solid" 
                    buttonStyle = {{backgroundColor:'#009C73', height:50, marginBottom:3}} 
-                   onPress={() => this.props.navigation.navigate('ForgotPassword')}/>
+                   onPress={() => this.props.navigation.navigate('ChangePassword')}/>
                <Text></Text>
                <Button title="Delete account" type="solid" 
                    buttonStyle = {{backgroundColor:'#009C73', height:50, marginTop:3, marginBottom:3}} 

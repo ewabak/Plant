@@ -13,10 +13,14 @@ import Burger from './Burger';
 import Settings from './Settings';
 import Watering from './Watering';
 import ForgotPassword from './ForgotPassword';
+import ChangePassword from './ChangePassword';
+import FavPlant from './FavPlant';
 import * as firebase from 'firebase';
 import config from "./config";
 import { YellowBox } from 'react-native';
 import _ from 'lodash';
+
+
 
 YellowBox.ignoreWarnings(['Setting a timer']);
 const _console = _.clone(console);
@@ -52,6 +56,10 @@ const AppNavigator = createStackNavigator(
     navigationOptions: { header: null } },
   Settings: { screen: Settings,
     navigationOptions: { header: null } },
+  FavPlant: { screen: FavPlant,
+    navigationOptions: { header: null } },
+  ChangePassword: { screen: ChangePassword,
+    navigationOptions: { header: null } },
 },
 
 {
@@ -78,8 +86,23 @@ onAuthStateChanged = (user) => {
   this.setState({isAuthenticated: !!user});
 }
   render() {
-    
-    return <AppContainer  />;
+    if ( (!this.state.isLoadingComplete || !this.state.isAuthenticationReady) && !this.props.skipLoadingScreen) {
+      return (
+        <AppLoading
+          startAsync={this._loadResourcesAsync}
+          onError={this._handleLoadingError}
+          onFinish={this._handleFinishLoading}
+        />
+      );
+    } else {
+      return (
+        <View style={styles.container}>
+          {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
+          {Platform.OS === 'android' && <View style={styles.statusBarUnderlay} />}
+          {(this.state.isAuthenticated) ? <Home /> : <AppNavigator />}
+        </View>
+      );
+    }
   }
 }
 _loadResourcesAsync = async () => {
