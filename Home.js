@@ -5,6 +5,7 @@ import {
     TouchableOpacity,
     Image,
     ScrollView,
+    StatusBar,
     ListView
 } from 'react-native';
 import styles from "./styles";
@@ -50,7 +51,7 @@ class Home extends React.Component {
       
 onLackOfLoginAdd = () => {
     firebase.auth().onAuthStateChanged((user) => {
-        if (user = null) {
+        if (user != null) {
             this.props.navigation.navigate('NewPlant');
         } else {
             this.props.navigation.navigate('Login');
@@ -60,7 +61,7 @@ onLackOfLoginAdd = () => {
 
 onLackOfLoginWatering = () => {
     firebase.auth().onAuthStateChanged((user) => {
-        if (user = null) {
+        if (user != null) {
             this.props.navigation.navigate('Watering');
         } else {
             this.props.navigation.navigate('Login');
@@ -70,7 +71,7 @@ onLackOfLoginWatering = () => {
 
 onLackOfLoginPlants = () => {
     firebase.auth().onAuthStateChanged((user) => {
-        if (user = null) {
+        if (user != null) {
             this.props.navigation.navigate('Catalog');
         } else {
             this.props.navigation.navigate('Login');
@@ -83,8 +84,9 @@ render(){
 
     
      return(
- 
+        
       <ScrollView style={styles.containerxd}> 
+      <StatusBar backgroundColor="rgba(0,0,0,0)" barStyle="light-content" hidden = {false} translucent = {true} />
       <TouchableOpacity style={styles.textStyle} onPress={() => this.props.navigation.navigate('Burger')}>
          <Image
             source={require('./images/burger.png')}

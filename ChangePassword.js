@@ -1,5 +1,6 @@
 import React from 'react';
 import { ScrollView, StyleSheet, Text, View, TextInput, Button, Linking, Alert, } from 'react-native';
+import styles from "./styles";
 import * as firebase from 'firebase';
 
 export default class ChangePassword extends React.Component {
@@ -35,26 +36,37 @@ export default class ChangePassword extends React.Component {
   
   render() {
     return (
-      <ScrollView style={{flex: 1, flexDirection: "column", paddingVertical: 50, paddingHorizontal: 10,}}>
+      <ScrollView  style={styles.containerxd}>
+        <View style={styles.textStyle}/>
+        <View style={styles.white}>
 
-        <TextInput style={styles.textInput} value={this.state.currentPassword}
-          placeholder="Current Password" autoCapitalize="none" secureTextEntry={true}
+        <TextInput style={styles.textInput} 
+        value={this.state.currentPassword}
+          placeholder="Current Password" 
+          autoCapitalize="none" 
+          secureTextEntry={true}
           onChangeText={(text) => { this.setState({currentPassword: text}) }}
         />
 
-        <TextInput style={styles.textInput} value={this.state.newPassword}
-          placeholder="New Password" autoCapitalize="none" secureTextEntry={true}
+        <TextInput style={styles.textInput} 
+          value={this.state.newPassword}
+          placeholder="New Password" 
+          autoCapitalize="none" secureTextEntry={true}
           onChangeText={(text) => { this.setState({newPassword: text}) }}
         />
 
-        <Button title="Change Password" onPress={this.onChangePasswordPress} />
-
+        <Button title="Change Password" type="solid" 
+            onPress={this.onChangePasswordPress} 
+            buttonStyle = {{backgroundColor:'#009C73', height:50, marginTop:3, marginBottom:3}}  />
+        </View>
+        <View style={styles.space}/> 
       </ScrollView>
+      
     );
   }
 }
 
-const styles = StyleSheet.create({
-    text: { color: "white", fontWeight: "bold", textAlign: "center", fontSize: 20, },
-    textInput: { borderWidth:1, borderColor:"gray", marginVertical: 20, padding:10, height:40, alignSelf: "stretch", fontSize: 18, },
-  });
+// const styles = StyleSheet.create({
+//     text: { color: "white", fontWeight: "bold", textAlign: "center", fontSize: 20, },
+//     textInput: { borderWidth:1, borderColor:"gray", marginVertical: 20, padding:10, height:40, alignSelf: "stretch", fontSize: 18, },
+//   });

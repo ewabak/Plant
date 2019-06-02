@@ -96,6 +96,7 @@ var styles = StyleSheet.create({
           justifyContent: "space-between",
           margin: 50
         },
+        textInput: {borderWidth:1, borderColor:"gray", marginVertical: 20, padding:10, height:40, alignSelf: "stretch", fontSize: 18}
 })
 
 module.exports = styles;
