@@ -35,7 +35,7 @@ firebase.auth().signInWithEmailAndPassword("gabriela.lenard0@gmail.com","passwor
 const AppNavigator = createStackNavigator(
   
 { Home: { screen: Home,
-    navigationOptions: { header: null } },
+    navigationOptions: { header: null, headerTransparent: true } },
   Catalog: { screen: Catalog,
     navigationOptions: { header: null } },
   CatalogPlant: { screen: CatalogPlant,
@@ -86,8 +86,23 @@ onAuthStateChanged = (user) => {
   this.setState({isAuthenticated: !!user});
 }
   render() {
-    
-    return <AppContainer  />;
+    if ( (!this.state.isLoadingComplete || !this.state.isAuthenticationReady) && !this.props.skipLoadingScreen) {
+      return (
+        <AppLoading
+          startAsync={this._loadResourcesAsync}
+          onError={this._handleLoadingError}
+          onFinish={this._handleFinishLoading}
+        />
+      );
+    } else {
+      return (
+        <View style={styles.container}>
+          {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
+          {Platform.OS === 'android' && <View style={styles.statusBarUnderlay} />}
+          {(this.state.isAuthenticated) ? <Home /> : <AppNavigator />}
+        </View>
+      );
+    }
   }
 }
 _loadResourcesAsync = async () => {

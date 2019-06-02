@@ -16,6 +16,9 @@ import ChangePassword from './ChangePassword';
 
 
  const AppNavigator = createStackNavigator({
+   Login: {screen: Login},
+   SignUp: {screen: SignUp},
+   ForgotPassword: {screen: ForgotPassword},
 
    Home: { screen: Home },
    Catalog: { screen: Catalog},
@@ -24,9 +27,6 @@ import ChangePassword from './ChangePassword';
    Search: {screen: Search},
    Watering: {screen: Watering},
    Registration: {screen: Registration},
-   Login: {screen: Login},
-   SignUp: {screen: SignUp},
-   ForgotPassword: {screen: ForgotPassword},
    FavPlant: {screen: FavPlant},
    Burger: {screen: Burger},
    Settings: {screen: Settings},
@@ -37,4 +37,4 @@ import ChangePassword from './ChangePassword';
 
  const App = createStackNavigator({ Home: MainNavigator }, { headerMode: 'none' });
 
-export default App;
+export default AppNavigator;
