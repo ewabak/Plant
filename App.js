@@ -13,6 +13,7 @@ import Burger from './Burger';
 import Settings from './Settings';
 import Watering from './Watering';
 import ForgotPassword from './ForgotPassword';
+import ChangePassword from './ChangePassword';
 import FavPlant from './FavPlant';
 import * as firebase from 'firebase';
 import config from "./config";
@@ -56,6 +57,8 @@ const AppNavigator = createStackNavigator(
   Settings: { screen: Settings,
     navigationOptions: { header: null } },
   FavPlant: { screen: FavPlant,
+    navigationOptions: { header: null } },
+  ChangePassword: { screen: ChangePassword,
     navigationOptions: { header: null } },
 },
 
