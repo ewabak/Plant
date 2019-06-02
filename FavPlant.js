@@ -5,17 +5,24 @@ import {
     TouchableOpacity,
     Image,
     ScrollView,
-    ListView
+    ListView,
+    Button
 } from 'react-native';
 import styles from "./styles";
 import * as firebase from 'firebase';
 import {Container, Content, ListItem} from 'native-base';
+import { ImagePicker } from 'expo';
 
 
 var snapshot = []
 var currentUser;
 
+
 class FavPlant extends React.Component {
+
+  state = {
+    image: null,
+  };
 
     constructor(props){
         super(props)
@@ -53,6 +60,7 @@ class FavPlant extends React.Component {
 
 
 render(){
+  let { image } = this.state;
   
      return(
       <ScrollView style={styles.containerxd}>
@@ -61,6 +69,14 @@ render(){
             source={require('./images/burger.png')}
             style={styles.ImageIconStyle} />
         </TouchableOpacity>
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <Button
+          title="Pick an image from camera roll"
+          onPress={this._pickImage}
+        />
+        {image &&
+          <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />}
+      </View>
 
      <View style={styles.white}>
      <Container>
@@ -101,7 +117,6 @@ render(){
           <View style={styles.tabHeader}><Text style={styles.textHeader}>Toxicity</Text></View>
           <View style={styles.tabContent}><Text style={styles.textContent}>{snapshot.val().toxicity}</Text></View>
            </View>   
-        }/>
                 </Content>
             </Container>
 
@@ -110,7 +125,20 @@ render(){
       </View>
     </ScrollView>
      );}
-     } 
+     }
+
+     _pickImage = async () => {
+      let result = await ImagePicker.launchImageLibraryAsync({
+        allowsEditing: true,
+        aspect: [4, 3],
+      });
+  
+      console.log(result);
+  
+      if (!result.cancelled) {
+        this.setState({ image: result.uri });
+      }
+    };
      
 export default FavPlant;
 

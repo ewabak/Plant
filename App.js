@@ -9,8 +9,11 @@ import NewPlant from './NewPlant';
 import Search from './Search';
 import Login from './Login';
 import SignUp from './SignUp';
+import Burger from './Burger';
+import Settings from './Settings';
 import Watering from './Watering';
 import ForgotPassword from './ForgotPassword';
+import ChangePassword from './ChangePassword';
 import FavPlant from './FavPlant';
 import * as firebase from 'firebase';
 import config from "./config";
@@ -32,7 +35,7 @@ firebase.auth().signInWithEmailAndPassword("gabriela.lenard0@gmail.com","passwor
 const AppNavigator = createStackNavigator(
   
 { Home: { screen: Home,
-    navigationOptions: { header: null } },
+    navigationOptions: { header: null, headerTransparent: true } },
   Catalog: { screen: Catalog,
     navigationOptions: { header: null } },
   CatalogPlant: { screen: CatalogPlant,
@@ -49,7 +52,13 @@ const AppNavigator = createStackNavigator(
     navigationOptions: { header: null } },
   Watering: { screen: Watering,
     navigationOptions: { header: null } },
+  Burger: { screen: Burger,
+    navigationOptions: { header: null } },
+  Settings: { screen: Settings,
+    navigationOptions: { header: null } },
   FavPlant: { screen: FavPlant,
+    navigationOptions: { header: null } },
+  ChangePassword: { screen: ChangePassword,
     navigationOptions: { header: null } },
 },
 
@@ -77,8 +86,23 @@ onAuthStateChanged = (user) => {
   this.setState({isAuthenticated: !!user});
 }
   render() {
-    
-    return <AppContainer  />;
+    if ( (!this.state.isLoadingComplete || !this.state.isAuthenticationReady) && !this.props.skipLoadingScreen) {
+      return (
+        <AppLoading
+          startAsync={this._loadResourcesAsync}
+          onError={this._handleLoadingError}
+          onFinish={this._handleFinishLoading}
+        />
+      );
+    } else {
+      return (
+        <View style={styles.container}>
+          {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
+          {Platform.OS === 'android' && <View style={styles.statusBarUnderlay} />}
+          {(this.state.isAuthenticated) ? <Home /> : <AppNavigator />}
+        </View>
+      );
+    }
   }
 }
 _loadResourcesAsync = async () => {
