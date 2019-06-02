@@ -1,24 +1,18 @@
 import React, { Component } from 'react';
 import {
-    Platform,
-    StyleSheet,
-    ActivityIndicator,
     Text,
     View,
     TouchableOpacity,
-    FlatList,
     Image,
     ScrollView,
     ListView
 } from 'react-native';
 import styles from "./styles";
-import { withNavigation } from 'react-navigation';
 import * as firebase from 'firebase';
 import {Container, Content, ListItem} from 'native-base';
 
 
-var data = []
-
+var snapshot = []
 var currentUser;
 
 class FavPlant extends React.Component {
@@ -29,30 +23,36 @@ class FavPlant extends React.Component {
          this.ds = new ListView.DataSource({rowHasChanged:(r1,r2) => r1 !==r2})
  
          this.state = {
-             listViewData : data
+             listViewData : snapshot
          }
      }
 
      componentDidMount(){
+       
       const { navigation } = this.props;
       const keyPlant = navigation.getParam('keyPlant');
 
-        firebase.database().ref('keyPlant').child('plantList').on('child_added',function(data){
+      firebase.auth().onAuthStateChanged((user) => {
+      
+        if (user != null) {
+          var that = this
+
+          firebase.database().ref(user.uid).child('plantList').child(keyPlant).on('value', function(snapshot){
+
+            console.log(snapshot.val().namePlant);
       
             var newData = [...that.state.listViewData]
-            newData.push(data)
+            newData.push(snapshot)
   
             that.setState({ listViewData: newData})
-        })
+
+        });
+      }
+    })
      }
 
 
-    //update plant name at the unique key
-    
-
-
 render(){
- //console.log(this.state.data.dataSource);
   
      return(
       <ScrollView style={styles.containerxd}>
@@ -68,40 +68,39 @@ render(){
                     <ListView
                         enableEmptySections
                         dataSource = {this.ds.cloneWithRows(this.state.listViewData)}
-                        renderRow={data =>
-<View>
-          <Image source={data.val().pcURL} style={styles.cardImage} />
-        
+                        renderRow={snapshot =>
+        <View>
+      
           <View style={styles.tabHeader}><Text style={styles.textHeader}>Scientific name</Text></View>
-          <View style={styles.tabContent}><Text style={styles.textContent}>{data.val().namePlant}</Text></View>
+          <View style={styles.tabContent}><Text style={styles.textContent}>{snapshot.val().namePlant}</Text></View>
           
           <View style={styles.tabHeader}><Text style={styles.textHeader}>Common name</Text></View>
-          <View style={styles.tabContent}><Text style={styles.textContent}>{data.val().nameC}</Text></View>
+          <View style={styles.tabContent}><Text style={styles.textContent}>{snapshot.val().nameC}</Text></View>
 
           <View style={styles.tabHeader}><Text style={styles.textHeader}>Moisture use</Text></View>
-          <View style={styles.tabContent}><Text style={styles.textContent}>{data.val().moisture}</Text></View>
+          <View style={styles.tabContent}><Text style={styles.textContent}>{snapshot.val().moisture}</Text></View>
 
           <View style={styles.tabHeader}><Text style={styles.textHeader}>Drought tolerance</Text></View>
-          <View style={styles.tabContent}><Text style={styles.textContent}>{data.val().drought}</Text></View>
+          <View style={styles.tabContent}><Text style={styles.textContent}>{snapshot.val().drought}</Text></View>
 
           <View style={styles.tabHeader}><Text style={styles.textHeader}>Flower color</Text></View>
-          <View style={styles.tabContent}><Text style={styles.textContent}>{data.val().fcolor}</Text></View>
+          <View style={styles.tabContent}><Text style={styles.textContent}>{snapshot.val().fcolor}</Text></View>
           
           <View style={styles.tabHeader}><Text style={styles.textHeader}>Life span</Text></View>
-          <View style={styles.tabContent}><Text style={styles.textContent}>{data.val().lifespan}</Text></View>
+          <View style={styles.tabContent}><Text style={styles.textContent}>{snapshot.val().lifespan}</Text></View>
 
           <View style={styles.tabHeader}><Text style={styles.textHeader}>Bloom period</Text></View>
-          <View style={styles.tabContent}><Text style={styles.textContent}>{data.val().bloom}</Text></View>
+          <View style={styles.tabContent}><Text style={styles.textContent}>{snapshot.val().bloom}</Text></View>
 
           <View style={styles.tabHeader}><Text style={styles.textHeader}>Growth period</Text></View>
-          <View style={styles.tabContent}><Text style={styles.textContent}>{data.val().gperiod}</Text></View>
+          <View style={styles.tabContent}><Text style={styles.textContent}>{snapshot.val().gperiod}</Text></View>
 
           <View style={styles.tabHeader}><Text style={styles.textHeader}>Mature height</Text></View>
-          <View style={styles.tabContent}><Text style={styles.textContent}>{data.val().mheight} cm</Text></View>
+          <View style={styles.tabContent}><Text style={styles.textContent}>{snapshot.val().mheight} cm</Text></View>
 
           <View style={styles.tabHeader}><Text style={styles.textHeader}>Toxicity</Text></View>
-          <View style={styles.tabContent}><Text style={styles.textContent}>{data.val().toxicity}</Text></View>
-          </View>   
+          <View style={styles.tabContent}><Text style={styles.textContent}>{snapshot.val().toxicity}</Text></View>
+           </View>   
         }/>
                 </Content>
             </Container>
