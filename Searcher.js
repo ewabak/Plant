@@ -12,8 +12,6 @@ import {
     
 } from 'react-native';
 import { Input, Card, Button } from 'react-native-elements';
-import styles from "./styles";
-
 import { Item } from 'native-base';
 
 class Searcher extends React.Component {
@@ -25,14 +23,6 @@ class Searcher extends React.Component {
                     onChangeText={this.props.onChangeText}
                     returnKeyType="search"
                     onSubmitEditing={this.props.plantSearch} />
-                    <View style={styles.space}/>   
-               <View style={styles.space}/>   
-               <View style={styles.space}/>   
-               <View style={styles.space}/>   
-               <View style={styles.space}/>   
-               <View style={styles.space}/>   
-               <View style={styles.space}/>   
-               <View style={styles.space}/>
             </Item>
         )
     }

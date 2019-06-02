@@ -86,7 +86,7 @@ render(){
 
      return(
       <ScrollView style={styles.containerxd}>
-        <TouchableOpacity style={styles.textStyle} onPress={() => this.props.navigation.navigate('Burger')}>
+        <TouchableOpacity style={styles.textStyle}>
           <Image
             source={require('./images/burger.png')}
             style={styles.ImageIconStyle} />
@@ -146,3 +146,47 @@ render(){
 }
 
 export default CatalogPlant;
+
+
+
+/**
+ 
+componentDidMount(){
+   const { navigation } = this.props;
+  const linkPlant = navigation.getParam('linkPlant');
+
+    fetch(linkPlant + '?token=/////FY03yEVzS77Ca1Q9TIbMdMlJhXtpOjhcqcD-MJHAYJXCNcdA3UrJ2p9Q')
+    .then(response => response.json())
+   .then((responseJson)=> {
+     this.setState({
+      loading: false,
+      dataSource: responseJson
+     })
+   })
+   .catch(error=>console.log(error)) 
+   }
+
+   renderItem=(data)=>
+
+     <TouchableOpacity style={styles.list}>
+            <Text style={styles.lightText}>{data.item.varieties[0].common_name}</Text> 
+     </TouchableOpacity>
+
+     render(){
+
+     return(
+
+            <View> 
+      <FlatList
+         data= {this.state.dataSource}
+         renderItem= {item=> this.renderItem(item)}
+         keyExtractor= {item=>item.id.toString()} />
+      </View>
+
+    </ScrollView>
+     );}
+
+
+
+
+ */

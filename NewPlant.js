@@ -21,7 +21,7 @@ class NewPlant extends React.Component {
 
      return(
       <ScrollView style={styles.containerxd}>
-      <TouchableOpacity style={styles.textStyle} onPress={() => this.props.navigation.navigate('Burger')}>
+      <TouchableOpacity style={styles.textStyle}>
          <Image
             source={require('./images/burger.png')}
             style={styles.ImageIconStyle} />

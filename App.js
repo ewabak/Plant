@@ -35,7 +35,7 @@ firebase.auth().signInWithEmailAndPassword("gabriela.lenard0@gmail.com","passwor
 const AppNavigator = createStackNavigator(
   
 { Home: { screen: Home,
-    navigationOptions: { header: null } },
+    navigationOptions: { header: null, headerTransparent: true } },
   Catalog: { screen: Catalog,
     navigationOptions: { header: null } },
   CatalogPlant: { screen: CatalogPlant,

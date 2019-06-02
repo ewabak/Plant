@@ -106,8 +106,16 @@ render(){
             <Button title="Plants catalog" type="solid" 
                 buttonStyle = {{backgroundColor:'#009C73', height:50, marginTop:3, marginBottom:3}} 
                 onPress={this.onLackOfLoginPlants} />
+            <Text></Text>
             
-            <View style={styles.space}/>
+            <Button title="testuje sobie login" type="solid" buttonStyle = {{backgroundColor:'#009C73'}} onPress={() => this.props.navigation.navigate('Login')} />
+            <Text></Text>
+            <Button title="testuje sobie signup" type="solid" buttonStyle = {{backgroundColor:'#009C73'}} onPress={() => this.props.navigation.navigate('SignUp')} />
+            <Text></Text>
+            <Button title="testuje sobie fpswd" type="solid" buttonStyle = {{backgroundColor:'#009C73'}} onPress={() => this.props.navigation.navigate('ForgotPassword')} />
+            <Text></Text>
+            <Text></Text>
+            <Text></Text>
 
 
             <Container style={{ flex: 1, backgroundColor: 'white'}}>
@@ -117,13 +125,9 @@ render(){
                         dataSource = {this.ds.cloneWithRows(this.state.listViewData)}
                         renderRow={data =>
 
-                            <TouchableOpacity onPress={() => this.props.navigation.navigate('FavPlant',{keyPlant: data.key})}>
-
-                                <View style={styles.tabHeader}><Text style={styles.textContent}> {data.val().namePlant}</Text></View>
-                                <View style={styles.tabHeader}><Text style={styles.textContent}> {data.val().nameC}</Text></View>
-
-                                <View style={styles.space}/>
-                            </TouchableOpacity>
+                            <ListItem>
+                                <Text> {data.val().namePlant}</Text>
+                            </ListItem>
                         }
                     />
                 </Content>

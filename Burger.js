@@ -13,12 +13,6 @@ import * as firebase from 'firebase';
 
 export default class Burger extends React.Component {
 
-    onLogoutPress = () => {
-        firebase.auth().signOut().then(() => { 
-            this.props.navigation.navigate('Home') ;}, 
-        (error) => { Alert.alert(error.message); });
-    }
-
     render(){
     
         return(
@@ -33,18 +27,10 @@ export default class Burger extends React.Component {
                <Text></Text>
                <Button title="Log out" type="solid" 
                    buttonStyle = {{backgroundColor:'#009C73', height:50, marginTop:3, marginBottom:3}} 
-                   onPress={this.onLogoutPress}
+                   onPress={() => this.props.navigation.navigate('Watering')}
                    />
                <Text></Text>               
-               <View style={styles.space}/> 
                <View style={styles.space}/>   
-               <View style={styles.space}/>   
-               <View style={styles.space}/>   
-               <View style={styles.space}/>   
-               <View style={styles.space}/>   
-               <View style={styles.space}/>   
-               <View style={styles.space}/>   
-               <View style={styles.space}/>  
    
          </View>
    
