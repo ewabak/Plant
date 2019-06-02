@@ -52,11 +52,13 @@ render(){
 
     
      return(
-      <ScrollView style={styles.containerxd}>
-      <TouchableOpacity style={styles.textStyle}>
+ 
+      <ScrollView style={styles.containerxd}> 
+      <TouchableOpacity style={styles.textStyle} onPress={() => this.props.navigation.navigate('Burger')}>
          <Image
             source={require('./images/burger.png')}
-            style={styles.ImageIconStyle} />
+            style={styles.imageIconStyle} 
+            />
      </TouchableOpacity>
      <View style={styles.white}>
          

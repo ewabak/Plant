@@ -6,6 +6,7 @@ import NewPlant from './NewPlant';
 import Search from './Search';
 import Registration from './Registration';
 import Watering from './Watering';
+import Burger from './Burger';
 import Login from './Login';
 import SignUp from './SignUp';
 import ForgotPassword from './ForgotPassword';
@@ -28,6 +29,7 @@ const StartNavigator = createSwitchNavigator({
 //   Search: {screen: Search},
 //   Watering: {screen: Watering},
 //   Registration: {screen: Registration}
+//   Burger: {screen: Burger}
 // }
 // );
 
