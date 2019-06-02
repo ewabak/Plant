@@ -17,7 +17,6 @@
     "react-native-firebase": "^5.3.1",
     "react-navigation": "^3.11.0"
   },
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "private": true
 }

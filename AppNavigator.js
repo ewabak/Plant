@@ -9,6 +9,8 @@ import Watering from './Watering';
 import Login from './Login';
 import SignUp from './SignUp';
 import ForgotPassword from './ForgotPassword';
+import FavPlant from './FavPlant';
+
 
 
  const AppNavigator = createStackNavigator({
@@ -23,7 +25,7 @@ import ForgotPassword from './ForgotPassword';
    Login: {screen: Login},
    SignUp: {screen: SignUp},
    ForgotPassword: {screen: ForgotPassword},
-
+   FavPlant: {screen: FavPlant},
 
 
  }
