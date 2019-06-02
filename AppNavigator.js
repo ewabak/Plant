@@ -14,7 +14,6 @@ import ForgotPassword from './ForgotPassword';
 import FavPlant from './FavPlant';
 import ChangePassword from './ChangePassword';
 
-
  const AppNavigator = createStackNavigator({
    Login: {screen: Login},
    SignUp: {screen: SignUp},

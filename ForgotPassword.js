@@ -19,6 +19,7 @@ export default class ForgotPassword extends React.Component {
             email: ""
         }
     }
+    
      render(){
          
      return(

@@ -11,7 +11,6 @@ import styles from "./styles";
 import * as firebase from 'firebase';
 import {Container, Content, ListItem} from 'native-base';
 
-
 var snapshot = []
 var currentUser;
 

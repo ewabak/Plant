@@ -95,8 +95,6 @@ class Search extends React.Component {
 
 
 
-
- 
      
       </View>
     </ScrollView>

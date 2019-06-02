@@ -15,7 +15,6 @@ import { Input, Card, Button } from 'react-native-elements';
 
 class NewPlant extends React.Component {
 
-     
      render(){
       
 

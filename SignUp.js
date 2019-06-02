@@ -81,6 +81,7 @@ export default class SignUp extends React.Component {
 }
 
 
+
 const styles = StyleSheet.create({
 
 });

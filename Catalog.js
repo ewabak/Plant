@@ -45,8 +45,6 @@ class Catalog extends React.Component {
             <View style={styles.space}/>
 
      </TouchableOpacity>
-
-
      
      render(){
 

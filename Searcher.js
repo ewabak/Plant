@@ -28,4 +28,5 @@ class Searcher extends React.Component {
     }
 }
 
+
 export default Searcher;

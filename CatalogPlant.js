@@ -133,8 +133,6 @@ render(){
           <View style={styles.tabHeader}><Text style={styles.textHeader}>Toxicity</Text></View>
           <View style={styles.tabContent}><Text style={styles.textContent}>{toxicity}</Text></View>
 
-
-
           <View style={styles.space}/>
 
       
