@@ -6,31 +6,26 @@ import NewPlant from './NewPlant';
 import Search from './Search';
 import Registration from './Registration';
 import Watering from './Watering';
+import Burger from './Burger';
+import Settings from '/Settings';
 import Login from './Login';
 import SignUp from './SignUp';
 import ForgotPassword from './ForgotPassword';
 
-const StartNavigator = createSwitchNavigator({  
-  Login: { screen: Login },
-  SignUp: { screen: SignUp },
-  ForgotPassword: { screen: ForgotPassword },
+const AppNavigator = createStackNavigator({
 
-  Main: { screen: Home }
-}
-);
+  Home: { screen: Home },
+   Catalog: { screen: Catalog},
+   CatalogPlant: {screen: CatalogPlant},
+   NewPlant: {screen: NewPlant},
+   Search: {screen: Search},
+   Watering: {screen: Watering},
+   Registration: {screen: Registration},
+   Burger: {screen: Burger},
+   Settings: {screen: Settings}
+ }
+ );
 
-// const AppNavigator = createStackNavigator({
-
-//   Home: { screen: Home },
-//   Catalog: { screen: Catalog},
-//   CatalogPlant: {screen: CatalogPlant},
-//   NewPlant: {screen: NewPlant},
-//   Search: {screen: Search},
-//   Watering: {screen: Watering},
-//   Registration: {screen: Registration}
-// }
-// );
-
-// const App = createSwitchNavigator({ Home: MainNavigator }, { headerMode: 'none' });
+ const App = createSwitchNavigator({ Home: MainNavigator }, { headerMode: 'none' });
 
 export default App;
