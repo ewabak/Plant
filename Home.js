@@ -5,14 +5,13 @@ import {
     TouchableOpacity,
     Image,
     ScrollView,
+    StatusBar,
     ListView
 } from 'react-native';
 import styles from "./styles";
 import { Button } from 'react-native-elements';
 import * as firebase from 'firebase';
 import {Container, Content, ListItem} from 'native-base';
-import { withNavigation } from 'react-navigation';
-
 
 
 // lista kwiatków
@@ -49,49 +48,86 @@ class Home extends React.Component {
           }
         })
       }
+      
+onLackOfLoginAdd = () => {
+    firebase.auth().onAuthStateChanged((user) => {
+        if (user != null) {
+            this.props.navigation.navigate('NewPlant');
+        } else {
+            this.props.navigation.navigate('Login');
+        }
+      });
+}
+
+onLackOfLoginWatering = () => {
+    firebase.auth().onAuthStateChanged((user) => {
+        if (user != null) {
+            this.props.navigation.navigate('Watering');
+        } else {
+            this.props.navigation.navigate('Login');
+        }
+      });
+}
+
+onLackOfLoginPlants = () => {
+    firebase.auth().onAuthStateChanged((user) => {
+        if (user != null) {
+            this.props.navigation.navigate('Catalog');
+        } else {
+            this.props.navigation.navigate('Login');
+        }
+      });
+}
+      
 
 render(){
 
     
      return(
-      <ScrollView style={styles.containerxd}>
-      <TouchableOpacity style={styles.textStyle}>
+        
+      <ScrollView style={styles.containerxd}> 
+      <StatusBar backgroundColor="rgba(0,0,0,0)" barStyle="light-content" hidden = {false} translucent = {true} />
+      <TouchableOpacity style={styles.textStyle} onPress={() => this.props.navigation.navigate('Burger')}>
          <Image
             source={require('./images/burger.png')}
-            style={styles.ImageIconStyle} />
+            style={styles.imageIconStyle} 
+            />
      </TouchableOpacity>
      <View style={styles.white}>
          
             <Button title="Add a new plant" type="solid" 
                 buttonStyle = {{backgroundColor:'#009C73', height:50, marginBottom:3}} 
-                onPress={() => this.props.navigation.navigate('NewPlant')}/>
+                onPress={this.onLackOfLoginAdd} />
             <Text></Text>
             <Button title="Watering schedule" type="solid" 
                 buttonStyle = {{backgroundColor:'#009C73', height:50, marginTop:3, marginBottom:3}} 
-                onPress={() => this.props.navigation.navigate('Watering')}
-                />
+                onPress={this.onLackOfLoginWatering} />
             <Text></Text>
             <Button title="Plants catalog" type="solid" 
                 buttonStyle = {{backgroundColor:'#009C73', height:50, marginTop:3, marginBottom:3}} 
-                onPress={() => this.props.navigation.navigate('Catalog')} />
+                onPress={this.onLackOfLoginPlants} />
+            <Text></Text>
             
-            <View style={styles.space}/>
+            <Button title="testuje sobie login" type="solid" buttonStyle = {{backgroundColor:'#009C73'}} onPress={() => this.props.navigation.navigate('Login')} />
+            <Text></Text>
+            <Button title="testuje sobie signup" type="solid" buttonStyle = {{backgroundColor:'#009C73'}} onPress={() => this.props.navigation.navigate('SignUp')} />
+            <Text></Text>
+            <Button title="testuje sobie fpswd" type="solid" buttonStyle = {{backgroundColor:'#009C73'}} onPress={() => this.props.navigation.navigate('ForgotPassword')} />
+            <Text></Text>
+            <Text></Text>
+            <Text></Text>
 
 
-            <Container>
+            <Container style={{ flex: 1, backgroundColor: 'white'}}>
                 <Content>
                     <ListView
                         enableEmptySections
                         dataSource = {this.ds.cloneWithRows(this.state.listViewData)}
                         renderRow={data =>
 
-                            <TouchableOpacity onPress={() => this.props.navigation.navigate('FavPlant',{keyPlant: data.key})}>
-
-                                <View style={styles.tabHeader}><Text style={styles.textContent}> {data.val().namePlant}</Text></View>
-                                <View style={styles.tabHeader}><Text style={styles.textContent}> {data.val().nameC}</Text></View>
-
-                                <View style={styles.space}/>
-                            </TouchableOpacity>
+                            <ListItem>
+                                <Text> {data.val().namePlant}</Text>
+                            </ListItem>
                         }
                     />
                 </Content>
