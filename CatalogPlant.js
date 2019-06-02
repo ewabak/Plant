@@ -105,9 +105,6 @@ render(){
           <View style={styles.tabHeader}><Text style={styles.textHeader}>Common name</Text></View>
           <View style={styles.tabContent}><Text style={styles.textContent}>{coname}</Text></View>
 
-          <View style={styles.tabHeader}><Text style={styles.textHeader}>Plant ID</Text></View>
-          <View style={styles.tabContent}><Text style={styles.textContent}>{plantid}</Text></View>
-
           <View style={styles.tabHeader}><Text style={styles.textHeader}>Moisture use</Text></View>
           <View style={styles.tabContent}><Text style={styles.textContent}>{moisture}</Text></View>
 

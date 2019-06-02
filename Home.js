@@ -11,6 +11,8 @@ import styles from "./styles";
 import { Button } from 'react-native-elements';
 import * as firebase from 'firebase';
 import {Container, Content, ListItem} from 'native-base';
+import { withNavigation } from 'react-navigation';
+
 
 
 // lista kwiatków
@@ -86,16 +88,21 @@ render(){
             <Text></Text>
 
 
-            <Container style={{ flex: 1, backgroundColor: 'white'}}>
+            <Container>
                 <Content>
                     <ListView
                         enableEmptySections
                         dataSource = {this.ds.cloneWithRows(this.state.listViewData)}
                         renderRow={data =>
 
-                            <ListItem>
-                                <Text> {data.val().namePlant}</Text>
-                            </ListItem>
+                            <TouchableOpacity onPress={() => this.props.navigation.navigate('FavPlant',{keyPlant: data.key})}>
+
+                                <View style={styles.tabHeader}><Text style={styles.textContent}> {data.val().namePlant}</Text></View>
+                                <View style={styles.tabHeader}><Text style={styles.textContent}> {data.val().nameC}</Text></View>
+                                <View style={styles.tabHeader}><Text style={styles.textContent}> {data.key}</Text></View>
+
+                                <View style={styles.space}/>
+                            </TouchableOpacity>
                         }
                     />
                 </Content>

@@ -11,7 +11,7 @@ import styles from "./styles";
 import { Button } from 'react-native-elements';
 import * as firebase from 'firebase';
 
-export default class SignUp extends React.Component {
+export default class Burger extends React.Component {
 
     render(){
     

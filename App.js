@@ -13,10 +13,13 @@ import Burger from './Burger';
 import Settings from './Settings';
 import Watering from './Watering';
 import ForgotPassword from './ForgotPassword';
+import FavPlant from './FavPlant';
 import * as firebase from 'firebase';
 import config from "./config";
 import { YellowBox } from 'react-native';
 import _ from 'lodash';
+
+
 
 YellowBox.ignoreWarnings(['Setting a timer']);
 const _console = _.clone(console);
@@ -51,6 +54,8 @@ const AppNavigator = createStackNavigator(
   Burger: { screen: Burger,
     navigationOptions: { header: null } },
   Settings: { screen: Settings,
+    navigationOptions: { header: null } },
+  FavPlant: { screen: FavPlant,
     navigationOptions: { header: null } },
 },
 

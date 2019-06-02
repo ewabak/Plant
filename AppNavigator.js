@@ -11,21 +11,28 @@ import Settings from '/Settings';
 import Login from './Login';
 import SignUp from './SignUp';
 import ForgotPassword from './ForgotPassword';
+import FavPlant from './FavPlant';
 
-const AppNavigator = createStackNavigator({
 
-  Home: { screen: Home },
+ const AppNavigator = createStackNavigator({
+
+   Home: { screen: Home },
    Catalog: { screen: Catalog},
    CatalogPlant: {screen: CatalogPlant},
    NewPlant: {screen: NewPlant},
    Search: {screen: Search},
    Watering: {screen: Watering},
    Registration: {screen: Registration},
+   Login: {screen: Login},
+   SignUp: {screen: SignUp},
+   ForgotPassword: {screen: ForgotPassword},
+   FavPlant: {screen: FavPlant},
    Burger: {screen: Burger},
    Settings: {screen: Settings}
+
  }
  );
 
- const App = createSwitchNavigator({ Home: MainNavigator }, { headerMode: 'none' });
+ const App = createStackNavigator({ Home: MainNavigator }, { headerMode: 'none' });
 
 export default App;
