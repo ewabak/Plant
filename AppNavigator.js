@@ -35,6 +35,6 @@ import ChangePassword from './ChangePassword';
  }
  );
 
- const AppNavigator = createStackNavigator({ Home: MainNavigator }, { headerMode: 'none' });
+ const App = createStackNavigator({ Home: MainNavigator }, { headerMode: 'none' });
 
 export default AppNavigator;
