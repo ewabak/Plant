@@ -11,7 +11,7 @@ import styles from "./styles";
 import { Button } from 'react-native-elements';
 import * as firebase from 'firebase';
 
-export default class SignUp extends React.Component {
+export default class Settings extends React.Component {
 
     render(){
     
@@ -21,11 +21,11 @@ export default class SignUp extends React.Component {
         <View style={styles.textStyle}/>
         <View style={styles.white}>
             
-               <Button title="Account settings" type="solid" 
+               <Button title="Change password" type="solid" 
                    buttonStyle = {{backgroundColor:'#009C73', height:50, marginBottom:3}} 
-                   onPress={() => this.props.navigation.navigate('Settings')}/>
+                   onPress={() => this.props.navigation.navigate('ForgotPassword')}/>
                <Text></Text>
-               <Button title="Log out" type="solid" 
+               <Button title="Delete account" type="solid" 
                    buttonStyle = {{backgroundColor:'#009C73', height:50, marginTop:3, marginBottom:3}} 
                    onPress={() => this.props.navigation.navigate('Watering')}
                    />

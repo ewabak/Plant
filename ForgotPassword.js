@@ -52,11 +52,13 @@ export default class ForgotPassword extends React.Component {
 
     render() {
         return (
-            <View style={{paddingTop:50, alignItems:"center"}}>
+            <ScrollView style={styles.containerxd}> 
+            <View style={styles.textStyle}/>
+            <View style={styles.white}>
 
                 <Text>Forgot Password</Text> 
 
-                <TextInput style={{width: 200, height: 40, borderWidth: 1}}
+                <TextInput style={{width: 200, height: 50, borderWidth: 1, marginBottom: 3}}
                     value={this.state.email}
                     onChangeText={(text) => { this.setState({email: text}) }}
                     placeholder="Email"
@@ -65,9 +67,17 @@ export default class ForgotPassword extends React.Component {
                     autoCorrect={false}
                 />
 
-                <Button title="Reset Password" onPress={this.onResetPasswordPress} />
-                <Button title="Back to Login" onPress={this.onBackToLoginPress} />
+                <Button title="Reset Password" type="solid" 
+                    buttonStyle = {{backgroundColor:'#009C73', height:50, marginBottom:3}} 
+                    onPress={this.onResetPasswordPress} />
+                <Button title="Back to Login" type="solid" 
+                    buttonStyle = {{backgroundColor:'#009C73', height:50, marginTop:3, marginBottom:3}}
+                    onPress={this.onBackToLoginPress} />
+                <View style={styles.space}/>   
             </View>
+            <Text></Text>               
+            <View style={styles.space}/>   
+            </ScrollView>
         );
     }
 }
