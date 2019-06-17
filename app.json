@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "Plant",
+    "name": "Plant app",
     "slug": "plant",
     "privacy": "public",
     "sdkVersion": "32.0.0",
@@ -8,9 +8,6 @@
       "ios",
       "android"
     ],
-    "android": {
-      "package": "uek.uek.plant"
-    },
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -27,6 +24,9 @@
     ],
     "ios": {
       "supportsTablet": true
+    },
+    "android": {
+      "package": "com.yourcompany.yourappname"
     }
   }
 }

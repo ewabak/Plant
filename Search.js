@@ -95,6 +95,15 @@ class Search extends React.Component {
 
 
 
+              <View style={styles.space}/>   
+               <View style={styles.space}/>   
+               <View style={styles.space}/>   
+               <View style={styles.space}/>   
+               <View style={styles.space}/>   
+               <View style={styles.space}/>   
+               <View style={styles.space}/>   
+               <View style={styles.space}/>
+ 
      
       </View>
     </ScrollView>

@@ -35,7 +35,7 @@ firebase.auth().signInWithEmailAndPassword("gabriela.lenard0@gmail.com","passwor
 const AppNavigator = createStackNavigator(
   
 { Home: { screen: Home,
-    navigationOptions: { header: null, headerTransparent: true } },
+    navigationOptions: { header: null } },
   Catalog: { screen: Catalog,
     navigationOptions: { header: null } },
   CatalogPlant: { screen: CatalogPlant,
@@ -119,7 +119,8 @@ _loadResourcesAsync = async () => {
 };
 
 _handleLoadingError = error => {
-
+  // In this case, you might want to report the error to your error
+  // reporting service, for example Sentry
   console.warn(error);
 };
 

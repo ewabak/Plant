@@ -5,21 +5,56 @@ import {
     TouchableOpacity,
     Image,
     ScrollView,
-    ListView
+    ListView,
+    FlatList
 } from 'react-native';
 import styles from "./styles";
 import * as firebase from 'firebase';
 import {Container, Content, ListItem} from 'native-base';
+import { ImagePicker, Camera, Permissions } from 'expo';
+import { Button } from 'react-native-elements';
+
 
 var snapshot = []
 var currentUser;
 
 class FavPlant extends React.Component {
+  state = {
+    image: null,
+  };
+
+ 
+  _pickImage = async () => {
+    await Permissions.askAsync(Permissions.CAMERA, Permissions.CAMERA_ROLL);
+    let result = await ImagePicker.launchImageLibraryAsync({
+      allowsEditing: true,
+      aspect: [4, 3],
+    });
+
+    console.log(result);
+
+    if (!result.cancelled) {
+      this.setState({ image: result.uri });
+    }
+  };
+
+  // _takeImage = async () => {
+  //   let result = await ImagePicker.launchCameraAsync({
+  //     allowsEditing: true,
+  //     aspect: [4, 3],
+  //   });
+
+  //   console.log(result);
+
+  //   if (!result.cancelled) {
+  //     this.setState({ image: result.uri });
+  //   }
+  // };
 
     constructor(props){
         super(props)
      
-         this.ds = new FlatList.DataSource({rowHasChanged:(r1,r2) => r1 !==r2})
+         this.ds = new ListView.DataSource({rowHasChanged:(r1,r2) => r1 !==r2})
  
          this.state = {
              listViewData : snapshot
@@ -50,67 +85,96 @@ class FavPlant extends React.Component {
     })
      }
 
-
 render(){
+  let { image } = this.state;
   
      return(
+
       <ScrollView style={styles.containerxd}>
-        <TouchableOpacity style={styles.textStyle}>
+
+        <TouchableOpacity style={styles.textStyle} onPress={() => this.props.navigation.navigate('Burger')}>
           <Image
             source={require('./images/burger.png')}
             style={styles.ImageIconStyle} />
         </TouchableOpacity>
 
+      
+
      <View style={styles.white}>
-     <Container>
-                <Content>
-                    <FlatList
-                        enableEmptySections
-                        dataSource = {this.ds.cloneWithRows(this.state.listViewData)}
-                        renderRow={snapshot =>
-        <View>
-          <View style={styles.tabHeader}><Text style={styles.textHeader}>Scientific name</Text></View>
-          <View style={styles.tabContent}><Text style={styles.textContent}>{snapshot.val().namePlant}</Text></View>
+     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Container>
+        <Content>
           
-          <View style={styles.tabHeader}><Text style={styles.textHeader}>Common name</Text></View>
-          <View style={styles.tabContent}><Text style={styles.textContent}>{snapshot.val().nameC}</Text></View>
-
-          <View style={styles.tabHeader}><Text style={styles.textHeader}>Moisture use</Text></View>
-          <View style={styles.tabContent}><Text style={styles.textContent}>{snapshot.val().moisture}</Text></View>
-
-          <View style={styles.tabHeader}><Text style={styles.textHeader}>Drought tolerance</Text></View>
-          <View style={styles.tabContent}><Text style={styles.textContent}>{snapshot.val().drought}</Text></View>
-
-          <View style={styles.tabHeader}><Text style={styles.textHeader}>Flower color</Text></View>
-          <View style={styles.tabContent}><Text style={styles.textContent}>{snapshot.val().fcolor}</Text></View>
-          
-          <View style={styles.tabHeader}><Text style={styles.textHeader}>Life span</Text></View>
-          <View style={styles.tabContent}><Text style={styles.textContent}>{snapshot.val().lifespan}</Text></View>
-
-          <View style={styles.tabHeader}><Text style={styles.textHeader}>Bloom period</Text></View>
-          <View style={styles.tabContent}><Text style={styles.textContent}>{snapshot.val().bloom}</Text></View>
-
-          <View style={styles.tabHeader}><Text style={styles.textHeader}>Growth period</Text></View>
-          <View style={styles.tabContent}><Text style={styles.textContent}>{snapshot.val().gperiod}</Text></View>
-
-          <View style={styles.tabHeader}><Text style={styles.textHeader}>Mature height</Text></View>
-          <View style={styles.tabContent}><Text style={styles.textContent}>{snapshot.val().mheight} cm</Text></View>
-
-          <View style={styles.tabHeader}><Text style={styles.textHeader}>Toxicity</Text></View>
-          <View style={styles.tabContent}><Text style={styles.textContent}>{snapshot.val().toxicity}</Text></View>
-           </View>   
-        }/>
-                </Content>
-            </Container>
-
+            <Button
+              title="Pick an image from camera roll"
+              type="solid" 
+              buttonStyle = {{backgroundColor:'#009C73'}}
+              onPress={this._pickImage}
+              />
+              {image &&
+                <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />}
           <View style={styles.space}/>
 
+            {/* <Button
+              title="Take a picture"
+              type="solid" 
+              buttonStyle = {{backgroundColor:'#009C73'}}
+              onPress={this._takeImage}
+              />
+              {image &&
+                <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />} */}
+            <Text/><Text />
+          
+            <View style={styles.space}/>
+
+          <ListView
+            enableEmptySections
+            dataSource = {this.ds.cloneWithRows(this.state.listViewData)}
+            renderRow={snapshot =>
+           <View>
+            <View style={styles.tabHeader}><Text style={styles.textHeader}>Scientific name</Text></View>
+            <View style={styles.tabContent}><Text style={styles.textContent}>{snapshot.val().namePlant}</Text></View>
+            
+            <View style={styles.tabHeader}><Text style={styles.textHeader}>Common name</Text></View>
+            <View style={styles.tabContent}><Text style={styles.textContent}>{snapshot.val().nameC}</Text></View>
+
+            <View style={styles.tabHeader}><Text style={styles.textHeader}>Moisture use</Text></View>
+            <View style={styles.tabContent}><Text style={styles.textContent}>{snapshot.val().moisture}</Text></View>
+
+            <View style={styles.tabHeader}><Text style={styles.textHeader}>Drought tolerance</Text></View>
+            <View style={styles.tabContent}><Text style={styles.textContent}>{snapshot.val().drought}</Text></View>
+
+            <View style={styles.tabHeader}><Text style={styles.textHeader}>Flower color</Text></View>
+            <View style={styles.tabContent}><Text style={styles.textContent}>{snapshot.val().fcolor}</Text></View>
+            
+            <View style={styles.tabHeader}><Text style={styles.textHeader}>Life span</Text></View>
+            <View style={styles.tabContent}><Text style={styles.textContent}>{snapshot.val().lifespan}</Text></View>
+
+            <View style={styles.tabHeader}><Text style={styles.textHeader}>Bloom period</Text></View>
+            <View style={styles.tabContent}><Text style={styles.textContent}>{snapshot.val().bloom}</Text></View>
+
+            <View style={styles.tabHeader}><Text style={styles.textHeader}>Growth period</Text></View>
+            <View style={styles.tabContent}><Text style={styles.textContent}>{snapshot.val().gperiod}</Text></View>
+
+            <View style={styles.tabHeader}><Text style={styles.textHeader}>Mature height</Text></View>
+            <View style={styles.tabContent}><Text style={styles.textContent}>{snapshot.val().mheight} cm</Text></View>
+
+            <View style={styles.tabHeader}><Text style={styles.textHeader}>Toxicity</Text></View>
+            <View style={styles.tabContent}><Text style={styles.textContent}>{snapshot.val().toxicity}</Text></View>
+            </View>
+               }
+             />
+           </Content>
+          </Container>
+
+          <View style={styles.space}/>
       </View>
-    </ScrollView>
-     );}
-     } 
-     
-export default FavPlant;
+      </View>
+      </ScrollView>
+     );
+    }
+  }
+  export default FavPlant;
 
 
 

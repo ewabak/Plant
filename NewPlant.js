@@ -15,12 +15,13 @@ import { Input, Card, Button } from 'react-native-elements';
 
 class NewPlant extends React.Component {
 
+     
      render(){
       
 
      return(
       <ScrollView style={styles.containerxd}>
-      <TouchableOpacity style={styles.textStyle}>
+      <TouchableOpacity style={styles.textStyle} onPress={() => this.props.navigation.navigate('Burger')}>
          <Image
             source={require('./images/burger.png')}
             style={styles.ImageIconStyle} />
