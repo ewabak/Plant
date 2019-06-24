@@ -6,50 +6,33 @@ import {
     Image,
     ScrollView,
     ListView,
-    FlatList
+    FlatList,
+    StatusBar
 } from 'react-native';
 import styles from "./styles";
 import * as firebase from 'firebase';
 import {Container, Content, ListItem} from 'native-base';
-import { ImagePicker, Camera, Permissions } from 'expo';
+import { ImagePicker, Camera, Permissions, Constants } from 'expo';
 import { Button } from 'react-native-elements';
+import uuid from 'uuid';
 
 
 var snapshot = []
 var currentUser;
 
+
+
 class FavPlant extends React.Component {
   state = {
     image: null,
+    uploading: false,
   };
 
  
-  _pickImage = async () => {
-    await Permissions.askAsync(Permissions.CAMERA, Permissions.CAMERA_ROLL);
-    let result = await ImagePicker.launchImageLibraryAsync({
-      allowsEditing: true,
-      aspect: [4, 3],
-    });
-
-    console.log(result);
-
-    if (!result.cancelled) {
-      this.setState({ image: result.uri });
+    async componentDidMount(){
+      await Permissions.askAsync(Permissions.CAMERA_ROLL);
+      await Permissions.askAsync(Permissions.CAMERA);
     }
-  };
-
-  // _takeImage = async () => {
-  //   let result = await ImagePicker.launchCameraAsync({
-  //     allowsEditing: true,
-  //     aspect: [4, 3],
-  //   });
-
-  //   console.log(result);
-
-  //   if (!result.cancelled) {
-  //     this.setState({ image: result.uri });
-  //   }
-  // };
 
     constructor(props){
         super(props)
@@ -74,6 +57,8 @@ class FavPlant extends React.Component {
           firebase.database().ref(user.uid).child('plantList').child(keyPlant).on('value', function(snapshot){
 
             console.log(snapshot.val().namePlant);
+            const nameC = snapshot.val().nameC;
+
       
             var newData = [...that.state.listViewData]
             newData.push(snapshot)
@@ -105,33 +90,38 @@ render(){
       <Container>
         <Content>
           
-            <Button
+              <Button
               title="Pick an image from camera roll"
               type="solid" 
               buttonStyle = {{backgroundColor:'#009C73'}}
               onPress={this._pickImage}
               />
-              {image &&
-                <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />}
-          <View style={styles.space}/>
-
-            {/* <Button
+              <View style={styles.space}/>
+              <Button
               title="Take a picture"
               type="solid" 
               buttonStyle = {{backgroundColor:'#009C73'}}
               onPress={this._takeImage}
               />
-              {image &&
+              {/* {image &&
                 <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />} */}
-            <Text/><Text />
-          
-            <View style={styles.space}/>
+              <View style={styles.space}/>
+
+            
+           <Button title="Add plant to watering schedule" type="solid" 
+          buttonStyle = {{backgroundColor:'#009C73'}} 
+          onPress={() => this.props.navigation.navigate('Watering',{nameC: nameC })}
+          />
+            
 
           <ListView
             enableEmptySections
             dataSource = {this.ds.cloneWithRows(this.state.listViewData)}
             renderRow={snapshot =>
            <View>
+             
+                      <View style={styles.space}/>
+
             <View style={styles.tabHeader}><Text style={styles.textHeader}>Scientific name</Text></View>
             <View style={styles.tabContent}><Text style={styles.textContent}>{snapshot.val().namePlant}</Text></View>
             
