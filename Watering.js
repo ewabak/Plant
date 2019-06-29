@@ -14,8 +14,8 @@ import styles from "./styles";
 import { Input, Card, Button } from 'react-native-elements';
 
 class Watering extends React.Component {
+  
 
-     
      render(){
       
 
@@ -29,6 +29,7 @@ class Watering extends React.Component {
      <View style={styles.white}>
      <View style={styles.space}/>
 
+      <Text>{namePlant}</Text>
 
       </View>
     </ScrollView>

@@ -96,6 +96,16 @@ var styles = StyleSheet.create({
           justifyContent: "space-between",
           margin: 50
         },
+        largeText: {
+          fontSize: 44,
+        },
+        smallText: {
+          fontSize: 18,
+        },
+        textStyleWeather: {
+          textAlign: 'center',
+          color: 'black',
+        },
 })
 
 module.exports = styles;

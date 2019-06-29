@@ -18,6 +18,7 @@ import { Button } from 'react-native-elements';
 var snapshot = []
 var currentUser;
 
+
 class FavPlant extends React.Component {
   state = {
     image: null,
@@ -74,6 +75,7 @@ class FavPlant extends React.Component {
           firebase.database().ref(user.uid).child('plantList').child(keyPlant).on('value', function(snapshot){
 
             console.log(snapshot.val().namePlant);
+
       
             var newData = [...that.state.listViewData]
             newData.push(snapshot)
@@ -123,15 +125,20 @@ render(){
               />
               {image &&
                 <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />} */}
-            <Text/><Text />
-          
-            <View style={styles.space}/>
+           
+            
 
           <ListView
             enableEmptySections
             dataSource = {this.ds.cloneWithRows(this.state.listViewData)}
             renderRow={snapshot =>
            <View>
+             <Button title="Add plant to watering schedule" type="solid" 
+          buttonStyle = {{backgroundColor:'#009C73'}} 
+          onPress={() => this.props.navigation.navigate('Watering',{namePlant: snapshot.val().namePlant})}
+          />
+                      <View style={styles.space}/>
+
             <View style={styles.tabHeader}><Text style={styles.textHeader}>Scientific name</Text></View>
             <View style={styles.tabContent}><Text style={styles.textContent}>{snapshot.val().namePlant}</Text></View>
             
