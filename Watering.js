@@ -14,10 +14,11 @@ import styles from "./styles";
 import { Input, Card, Button } from 'react-native-elements';
 
 class Watering extends React.Component {
-  
 
      render(){
-      
+         
+    const { navigation } = this.props;
+    const common = navigation.getParam('nameC');
 
      return(
       <ScrollView style={styles.containerxd}>
@@ -30,6 +31,9 @@ class Watering extends React.Component {
      <View style={styles.space}/>
 
       <Text>{namePlant}</Text>
+
+      <Text>{nameC}</Text>
+
 
       </View>
     </ScrollView>
