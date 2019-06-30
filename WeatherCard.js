@@ -18,12 +18,6 @@ export default class WeatherCard extends Component {
 		var minutes = "0" + date.getMinutes();
 
 		time = hours + ':' + minutes.substr(-2);
-		
-		// dates.map(date => date.dt_txt)
-
-		this.dates = this.state && this.state.map((item, key) =>
-   			<li key={item.dt_txt}></li>
-		);
 
 		return (
 			<Card containerStyle={styles.card}>
@@ -33,8 +27,7 @@ export default class WeatherCard extends Component {
 					<Image style={{width:80, height:80}} source={{uri:"https://openweathermap.org/img/w/" + this.props.detail.weather[0].icon + ".png"}} />
 					<Text style={styles.time}>{time}</Text>
 					<Text>{this.props.date}</Text>
-					<Text>{this.dates}</Text>
- 
+					
 					
 				</View>
 				

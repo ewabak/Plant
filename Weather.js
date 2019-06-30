@@ -12,8 +12,7 @@ export default class App extends React.Component {
 			latitude: 0,
 			longitude: 0,
 			forecast: [],
-			error:'',
-			data: []
+			error:''
 		};
 	}
 
@@ -49,16 +48,14 @@ export default class App extends React.Component {
 		.then(response => response.json())
 		.then(data => {
 			this.setState((prevState, props) => ({
-				forecast: data,
+				forecast: data
 			}));
 		})
 	}
 
 	render() {
 		return (
-			<FlatList data={this.state.forecast.list} style={{marginTop:20}} keyExtractor={item => item.dt_txt} renderItem={({item}) => <WeatherCard detail={item} location={this.state.forecast.city.name} 
-			date={this.state.data && this.state.data.map((item,key) => 
-			<li key={item.dt_txt}></li>)} />} />
+			<FlatList data={this.state.forecast.list} style={{marginTop:20}} keyExtractor={item => item.dt_txt} renderItem={({item}) => <WeatherCard detail={item} location={this.state.forecast.city.name} date={this.state.forecast.list[0].dt_txt} />} />
 		);
 	}
 }
