@@ -26,6 +26,7 @@ var storageRef = firebase.storage().ref("images");
 
 
 
+
 class FavPlant extends React.Component {
   state = {
     image: null,
@@ -61,7 +62,10 @@ class FavPlant extends React.Component {
           firebase.database().ref(user.uid).child('plantList').child(keyPlant).on('value', function(snapshot){
 
             console.log(snapshot.val().namePlant);
+
+            
             const nameC = snapshot.val().nameC;
+
 
       
             var newData = [...that.state.listViewData]
@@ -190,6 +194,7 @@ render(){
               />
               {/* {image &&
                 <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />} */}
+
               <View style={styles.space}/>
 
               {this._maybeRenderImage()}
@@ -211,7 +216,12 @@ render(){
             dataSource = {this.ds.cloneWithRows(this.state.listViewData)}
             renderRow={snapshot =>
            <View>
-             
+
+             <Button title="Add plant to watering schedule" type="solid" 
+          buttonStyle = {{backgroundColor:'#009C73'}} 
+          onPress={() => this.props.navigation.navigate('Watering',{namePlant: snapshot.val().namePlant})}
+          />
+
                       <View style={styles.space}/>
 
             <View style={styles.tabHeader}><Text style={styles.textHeader}>Scientific name</Text></View>

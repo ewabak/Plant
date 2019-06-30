@@ -13,6 +13,7 @@ import SignUp from './SignUp';
 import ForgotPassword from './ForgotPassword';
 import FavPlant from './FavPlant';
 import ChangePassword from './ChangePassword';
+import WeatherCard from './WeatherCard';
 
 
  const AppNavigator = createStackNavigator({
@@ -30,7 +31,10 @@ import ChangePassword from './ChangePassword';
    FavPlant: {screen: FavPlant},
    Burger: {screen: Burger},
    Settings: {screen: Settings},
-   ChangePassword: {screen: ChangePassword}
+   ChangePassword: {screen: ChangePassword},
+   Weather: {screen: Weather},
+   SearchInput: {screen: SearchInput},
+   WeatherCard: {screen: WeatherCard}
 
  }
  );
