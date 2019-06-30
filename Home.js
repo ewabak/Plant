@@ -236,6 +236,7 @@ render(){
 
             <Container style={{ flex: 1, backgroundColor: 'white'}}>
                 <Content>
+                  <ScrollView>
                     <ListView
                         enableEmptySections
                         dataSource = {this.ds.cloneWithRows(this.state.listViewData)}
@@ -250,6 +251,7 @@ render(){
                             </TouchableOpacity>
                         }
                     />
+                    </ScrollView>
                 </Content>
             </Container>
             

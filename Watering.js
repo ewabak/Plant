@@ -12,8 +12,11 @@ import {
 } from 'react-native';
 import styles from "./styles";
 import { Input, Card, Button, Badge } from 'react-native-elements';
+import * as firebase from 'firebase';
 
-class Watering extends React.Component {
+
+class Watering extends React.Component {  
+
 
      render(){
          
@@ -28,8 +31,9 @@ class Watering extends React.Component {
             style={styles.ImageIconStyle} />
      </TouchableOpacity>
 
-    <View style={styles.white}>                 
-    <Button title="Monday" type="outline" buttonStyle = {{borderColor:'#009C73'}} titleStyle={{color:'#000'}}/>
+    <View style={styles.white}>
+                           
+    {/* <Button title="Monday" type="outline" buttonStyle = {{borderColor:'#009C73'}} titleStyle={{color:'#000'}}/>
     <Text></Text>
     <Button title="Tuesday" type="outline" buttonStyle = {{borderColor:'#009C73'}} titleStyle={{color:'#000'}}/>
     <Text></Text>
@@ -42,10 +46,11 @@ class Watering extends React.Component {
     <Button title="Saturday" type="outline" buttonStyle = {{borderColor:'#009C73'}} titleStyle={{color:'#000'}}/>
     <Text></Text>
     <Button title="Sunday" type="outline" buttonStyle = {{borderColor:'#009C73'}} titleStyle={{color:'#000'}}/>
-    <Text></Text>
+    <Text></Text> */}
     <View style={styles.space}/>
     <View style={styles.white}/>
-
+    
+  
       {/* <Text>{namePlant}</Text> */}
 
       <Text>{common}</Text>

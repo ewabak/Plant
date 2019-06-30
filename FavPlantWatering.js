@@ -19,7 +19,7 @@ var currentUser
 
 class Watering extends React.Component {
 
-  addToMonday = async(scientific, common) =>{
+  addToMonday = async(scientific,common) =>{
 
     //get current user
     currentUser = await firebase.auth().currentUser
@@ -47,7 +47,7 @@ class Watering extends React.Component {
       {cancelable: false},
     );
   }
-  addToTuesday = async(scientific, common) =>{
+  addToTuesday = async(scientific,common) =>{
 
     //get current user
     currentUser = await firebase.auth().currentUser
@@ -225,8 +225,9 @@ class Watering extends React.Component {
      render(){
          
     const { navigation } = this.props;
-    const common = navigation.getParam('nameC');
     const scientific = navigation.getParam('namePlant');
+    const common = navigation.getParam('nameC');
+    
 
      return(
       <ScrollView style={styles.containerxd}>
