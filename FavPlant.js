@@ -21,6 +21,8 @@ import uuid from 'uuid';
 
 var snapshot = []
 var currentUser;
+var storageRef = firebase.storage().ref("images");
+
 
 
 
@@ -71,6 +73,8 @@ class FavPlant extends React.Component {
       }
     })
      }
+
+
      _maybeRenderUploadingOverlay = () => {
       if (this.state.uploading) {
         return (
@@ -198,6 +202,8 @@ render(){
           buttonStyle = {{backgroundColor:'#009C73'}} 
           onPress={() => this.props.navigation.navigate('Watering',{nameC: nameC })}
           />
+          
+          
             
 
           <ListView
@@ -254,6 +260,7 @@ render(){
 
 
 async function uploadImageAsync(uri) {
+  
   // Why are we using XMLHttpRequest? See:
   // https://github.com/expo/expo/issues/2402#issuecomment-443726662
   const blob = await new Promise((resolve, reject) => {
