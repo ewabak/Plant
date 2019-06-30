@@ -26,7 +26,7 @@ export default class WeatherCard extends Component {
 				<View style={{flexDirection:'row', justifyContent:'space-between', alignItems:'center'}}>
 					<Image style={{width:80, height:80}} source={{uri:"https://openweathermap.org/img/w/" + this.props.detail.weather[0].icon + ".png"}} />
 					<Text style={styles.time}>{time}</Text>
-					<Text>{this.props.date}</Text>
+					{/* <Text>{this.props.date}</Text> */}
 					
 					
 				</View>

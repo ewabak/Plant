@@ -16,6 +16,7 @@ import SearchInput from './SearchInput';
 import ForgotPassword from './ForgotPassword';
 import ChangePassword from './ChangePassword';
 import FavPlant from './FavPlant';
+import FavPlantWatering from './FavPlantWatering';
 import Weather from './Weather';
 import WeatherCard from './WeatherCard';
 import * as firebase from 'firebase';
@@ -31,7 +32,6 @@ console.warn = message => {
   if (message.indexOf('Setting a timer') <= -1) {
     _console.warn(message);
   }};
-
 
 firebase.auth().signInWithEmailAndPassword("gabriela.lenard0@gmail.com","password")
 
@@ -60,6 +60,8 @@ const AppNavigator = createStackNavigator(
   Settings: { screen: Settings,
     navigationOptions: { header: null } },
   FavPlant: { screen: FavPlant,
+    navigationOptions: { header: null } },
+  FavPlantWatering: { screen: FavPlantWatering,
     navigationOptions: { header: null } },
   ChangePassword: { screen: ChangePassword,
     navigationOptions: { header: null } },

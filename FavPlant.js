@@ -9,7 +9,8 @@ import {
     FlatList,
     StatusBar,
     StyleSheet,
-    ActivityIndicator
+    ActivityIndicator,
+    TextInput
 } from 'react-native';
 import styles from "./styles";
 import * as firebase from 'firebase';
@@ -21,16 +22,16 @@ import uuid from 'uuid';
 
 var snapshot = []
 var currentUser;
-var storageRef = firebase.storage().ref("images");
-
-
-
+// const notesApp = firebase.initializeApp();
+// const rootRef = firebase.database().ref();
+// const notesApp = rootRef.child('notes');
 
 
 class FavPlant extends React.Component {
   state = {
     image: null,
     uploading: false,
+    newNote: '',
   };
 
  
@@ -45,9 +46,11 @@ class FavPlant extends React.Component {
          this.ds = new ListView.DataSource({rowHasChanged:(r1,r2) => r1 !==r2})
  
          this.state = {
-             listViewData : snapshot
+             listViewData : snapshot,
+             
          }
      }
+     
 
      componentDidMount(){
        
@@ -58,15 +61,12 @@ class FavPlant extends React.Component {
       
         if (user != null) {
           var that = this
-
-          firebase.database().ref(user.uid).child('plantList').child(keyPlant).on('value', function(snapshot){
+           //firebase.database().ref(user.uid).child('plantList').child(keyPlant)
+           firebase.database().ref(user.uid).child('plantList').child(keyPlant).on('value', function(snapshot){
 
             console.log(snapshot.val().namePlant);
-
             
             const nameC = snapshot.val().nameC;
-
-
       
             var newData = [...that.state.listViewData]
             newData.push(snapshot)
@@ -76,6 +76,18 @@ class FavPlant extends React.Component {
         });
       }
     })
+     }
+
+     onPressAdd = async(keyPlant) => {
+       if (this.state.newNote.trim() === '') {
+          alert('Note is blank');
+          return;
+       }
+       currentUser = await firebase.auth().currentUser
+
+       firebase.database().ref(currentUser.uid).child('plantList').child(keyPlant).push({
+         note: this.state.newNote
+       });
      }
 
 
@@ -142,6 +154,15 @@ class FavPlant extends React.Component {
   
       this._handleImagePicked(pickerResult);
     };
+
+    _takeImage = async () => {
+      let pickerResult = await ImagePicker.launchCameraAsync({
+        allowsEditing: true,
+        aspect: [4, 3],
+      });
+  
+      this._handleImagePicked(pickerResult);
+    };
   
     _handleImagePicked = async pickerResult => {
       try {
@@ -178,6 +199,8 @@ render(){
      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Container>
         <Content>
+
+
           
               <Button
               title="Pick an image from camera roll"
@@ -185,7 +208,7 @@ render(){
               buttonStyle = {{backgroundColor:'#009C73'}}
               onPress={this._pickImage}
               />
-              <View style={styles.space}/>
+<Text></Text>
               <Button
               title="Take a picture"
               type="solid" 
@@ -195,34 +218,46 @@ render(){
               {/* {image &&
                 <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />} */}
 
-              <View style={styles.space}/>
-
+    <Text></Text>
               {this._maybeRenderImage()}
               {this._maybeRenderUploadingOverlay()}
 
         <StatusBar barStyle="default" />
-
-            
-           <Button title="Add plant to watering schedule" type="solid" 
-          buttonStyle = {{backgroundColor:'#009C73'}} 
-          onPress={() => this.props.navigation.navigate('Watering',{nameC: nameC })}
-          />
-          
-          
-            
-
+  
           <ListView
+            style={{height:500}}
             enableEmptySections
             dataSource = {this.ds.cloneWithRows(this.state.listViewData)}
             renderRow={snapshot =>
-           <View>
-
-             <Button title="Add plant to watering schedule" type="solid" 
+           <View>           
+             
+            <Button title="Add plant to watering schedule" type="solid" 
           buttonStyle = {{backgroundColor:'#009C73'}} 
-          onPress={() => this.props.navigation.navigate('Watering',{namePlant: snapshot.val().namePlant})}
+          onPress={() => this.props.navigation.navigate('FavPlantWatering',{nameC: snapshot.val().nameC, namePlant: snapshot.val().namePlant})}
           />
 
-                      <View style={styles.space}/>
+            <TextInput style={{
+              height:40,
+              width:200,
+              margin:10,
+              padding:10,
+              borderColor: "#009C73",
+              borderWidth:1,
+              backgroundColor:"white",
+              color:"black"}}
+            placeholderTextColor='black' 
+            placeholder='Enter note'
+            autoCapitalize='none'
+            onChangeText={
+                (text) => {
+                    this.setState({newNote: text});
+                }
+            }
+            value = {this.state.newNote}  />
+            <Button title="+" type="solid" buttonStyle = {{backgroundColor:'#009C73'}}  onPress={this.onPressAdd} />
+
+
+<Text></Text>
 
             <View style={styles.tabHeader}><Text style={styles.textHeader}>Scientific name</Text></View>
             <View style={styles.tabContent}><Text style={styles.textContent}>{snapshot.val().namePlant}</Text></View>

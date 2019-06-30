@@ -33,7 +33,7 @@ var styles = StyleSheet.create({
         },
         tabHeader: {
           backgroundColor: '#F2F2F2',
-          height: 50,
+          height: 30,
           width: '100%',
           flex: 1,
           justifyContent: 'center',
@@ -45,7 +45,7 @@ var styles = StyleSheet.create({
         },
         tabContent: {
           backgroundColor: '#fff',
-          height: 50,
+          height: 30,
           width: '100%',
           flex: 1,
           justifyContent: 'center',
@@ -106,6 +106,14 @@ var styles = StyleSheet.create({
           textAlign: 'center',
           color: 'black',
         },
+        textInput: { 
+          borderWidth:1, 
+          borderColor:"gray", 
+          marginVertical: 20, 
+          padding:10, 
+          height:40, 
+          alignSelf: "stretch", 
+          fontSize: 18, },
 })
 
 module.exports = styles;

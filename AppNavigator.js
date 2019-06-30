@@ -12,6 +12,7 @@ import Login from './Login';
 import SignUp from './SignUp';
 import ForgotPassword from './ForgotPassword';
 import FavPlant from './FavPlant';
+import FavPlantWatering from './FavPlantWatering';
 import ChangePassword from './ChangePassword';
 import WeatherCard from './WeatherCard';
 
@@ -34,7 +35,8 @@ import WeatherCard from './WeatherCard';
    ChangePassword: {screen: ChangePassword},
    Weather: {screen: Weather},
    SearchInput: {screen: SearchInput},
-   WeatherCard: {screen: WeatherCard}
+   WeatherCard: {screen: WeatherCard},
+   FavPlantWatering: {screen: FavPlantWatering}
 
  }
  );
