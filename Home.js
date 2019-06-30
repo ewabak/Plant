@@ -35,7 +35,7 @@ export const fetchOpenWeatherCity = async city => {
   };
   
   export const fetchOpenWeatherGPS = async coords => {
-    console.log(coords);
+    // console.log(coords);
     const response = await fetch(
       `http://api.openweathermap.org/data/2.5/weather?lat=${coords.latitude}&lon=${coords.longitude}&appid=063b3406208219cbfa80352760f2a4ba&units=metric`,
     );

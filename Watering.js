@@ -11,7 +11,7 @@ import {
     ScrollView
 } from 'react-native';
 import styles from "./styles";
-import { Input, Card, Button } from 'react-native-elements';
+import { Input, Card, Button, Badge } from 'react-native-elements';
 
 class Watering extends React.Component {
 
@@ -27,12 +27,28 @@ class Watering extends React.Component {
             source={require('./images/burger.png')}
             style={styles.ImageIconStyle} />
      </TouchableOpacity>
-     <View style={styles.white}>
-     <View style={styles.space}/>
 
-      <Text>{namePlant}</Text>
+    <View style={styles.white}>                 
+    <Button title="Monday" type="outline" buttonStyle = {{borderColor:'#009C73'}} titleStyle={{color:'#000'}}/>
+    <Text></Text>
+    <Button title="Tuesday" type="outline" buttonStyle = {{borderColor:'#009C73'}} titleStyle={{color:'#000'}}/>
+    <Text></Text>
+    <Button title="Wednesday" type="outline" buttonStyle = {{borderColor:'#009C73'}} titleStyle={{color:'#000'}}/>
+    <Text></Text>
+    <Button title="Thursday" type="outline" buttonStyle = {{borderColor:'#009C73'}} titleStyle={{color:'#000'}}/>
+    <Text></Text>
+    <Button title="Friday" type="outline" buttonStyle = {{borderColor:'#009C73'}} titleStyle={{color:'#000'}}/>
+    <Text></Text>
+    <Button title="Saturday" type="outline" buttonStyle = {{borderColor:'#009C73'}} titleStyle={{color:'#000'}}/>
+    <Text></Text>
+    <Button title="Sunday" type="outline" buttonStyle = {{borderColor:'#009C73'}} titleStyle={{color:'#000'}}/>
+    <Text></Text>
+    <View style={styles.space}/>
+    <View style={styles.white}/>
 
-      <Text>{nameC}</Text>
+      {/* <Text>{namePlant}</Text> */}
+
+      <Text>{common}</Text>
 
 
       </View>

@@ -21,10 +21,6 @@ import uuid from 'uuid';
 
 var snapshot = []
 var currentUser;
-var storageRef = firebase.storage().ref("images");
-
-
-
 
 
 class FavPlant extends React.Component {
@@ -48,6 +44,7 @@ class FavPlant extends React.Component {
              listViewData : snapshot
          }
      }
+     
 
      componentDidMount(){
        
@@ -201,21 +198,17 @@ render(){
               {this._maybeRenderUploadingOverlay()}
 
         <StatusBar barStyle="default" />
-
-            
-           <Button title="Add plant to watering schedule" type="solid" 
-          buttonStyle = {{backgroundColor:'#009C73'}} 
-          onPress={() => this.props.navigation.navigate('Watering',{nameC: nameC })}
-          />
-          
-          
-            
-
+  
           <ListView
             enableEmptySections
             dataSource = {this.ds.cloneWithRows(this.state.listViewData)}
             renderRow={snapshot =>
-           <View>
+           <View>           
+             
+            <Button title="Add plant to watering schedule" type="solid" 
+          buttonStyle = {{backgroundColor:'#009C73'}} 
+          onPress={() => this.props.navigation.navigate('FavPlantWatering',{nameC: snapshot.val().nameC })}
+          />
 
              <Button title="Add plant to watering schedule" type="solid" 
           buttonStyle = {{backgroundColor:'#009C73'}} 

@@ -106,6 +106,14 @@ var styles = StyleSheet.create({
           textAlign: 'center',
           color: 'black',
         },
+        textInput: { 
+          borderWidth:1, 
+          borderColor:"gray", 
+          marginVertical: 20, 
+          padding:10, 
+          height:40, 
+          alignSelf: "stretch", 
+          fontSize: 18, },
 })
 
 module.exports = styles;
