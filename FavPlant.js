@@ -10,7 +10,8 @@ import {
     StatusBar,
     StyleSheet,
     ActivityIndicator,
-    TextInput
+    TextInput,
+    Alert
 } from 'react-native';
 import styles from "./styles";
 import * as firebase from 'firebase';
@@ -78,14 +79,15 @@ class FavPlant extends React.Component {
     })
      }
 
-     onPressAdd = async(keyPlant) => {
-       if (this.state.newNote.trim() === '') {
+     onPressAdd = async(keyPlants) => {
+       if (this.state.newNote === '') {
           alert('Note is blank');
           return;
        }
+       const keyPlantss = String(keyPlants);
        currentUser = await firebase.auth().currentUser
 
-       firebase.database().ref(currentUser.uid).child('plantList').child(keyPlant).push({
+       firebase.database().ref(currentUser.uid).child('plantList').child(keyPlantss).update({
          note: this.state.newNote
        });
      }
@@ -182,6 +184,9 @@ class FavPlant extends React.Component {
 
 render(){
   let { image } = this.state;
+  const { navigation } = this.props;
+  const keyPlants = navigation.getParam('keyPlant');
+  
   
      return(
 
