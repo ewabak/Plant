@@ -28,9 +28,7 @@ export default class WeatherCard extends Component {
 					<Text style={styles.time}>{time}</Text>
 					{/* <Text>{this.props.date}</Text> */}
 					
-					
 				</View>
-				
 				<Divider style={{ backgroundColor: '#dfe6e9', marginVertical:20}} />
 				
 				<View style={{flexDirection:'row', justifyContent:'space-between'}}>
