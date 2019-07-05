@@ -12,9 +12,13 @@ import SignUp from './SignUp';
 import Burger from './Burger';
 import Settings from './Settings';
 import Watering from './Watering';
+import SearchInput from './SearchInput';
 import ForgotPassword from './ForgotPassword';
 import ChangePassword from './ChangePassword';
 import FavPlant from './FavPlant';
+import FavPlantWatering from './FavPlantWatering';
+import Weather from './Weather';
+import WeatherCard from './WeatherCard';
 import * as firebase from 'firebase';
 import config from "./config";
 import { YellowBox } from 'react-native';
@@ -28,7 +32,6 @@ console.warn = message => {
   if (message.indexOf('Setting a timer') <= -1) {
     _console.warn(message);
   }};
-
 
 firebase.auth().signInWithEmailAndPassword("gabriela.lenard0@gmail.com","password")
 
@@ -58,7 +61,15 @@ const AppNavigator = createStackNavigator(
     navigationOptions: { header: null } },
   FavPlant: { screen: FavPlant,
     navigationOptions: { header: null } },
+  FavPlantWatering: { screen: FavPlantWatering,
+    navigationOptions: { header: null } },
   ChangePassword: { screen: ChangePassword,
+    navigationOptions: { header: null } },
+  Weather: { screen: Weather,
+    navigationOptions: { header: null } },
+  SearchInput: { screen: SearchInput,
+    navigationOptions: { header: null } },
+  WeatherCard: { screen: WeatherCard,
     navigationOptions: { header: null } },
 },
 

@@ -36,12 +36,12 @@ export default class ChangePassword extends React.Component {
   
   render() {
     return (
-      <ScrollView  style={styles.containerxd}>
+      <View style={styles.containerxd}>
         <View style={styles.textStyle}/>
         <View style={styles.white}>
 
         <TextInput style={styles.textInput} 
-        value={this.state.currentPassword}
+          value={this.state.currentPassword}
           placeholder="Current Password" 
           autoCapitalize="none" 
           secureTextEntry={true}
@@ -56,11 +56,17 @@ export default class ChangePassword extends React.Component {
         />
 
         <Button title="Change Password" type="solid" 
-            onPress={this.onChangePasswordPress} 
-            buttonStyle = {{backgroundColor:'#009C73', height:50, marginTop:3, marginBottom:3}}  />
+            buttonStyle = {{backgroundColor:'#009C73', height:50, marginTop:3, marginBottom:3}}
+            onPress={this.onChangePasswordPress}   />
+
+        
+        <View style={styles.space}/>
+        <View style={styles.white}/>
+        <View style={styles.white}/>
+        <View style={styles.white}/>
+        <View style={styles.space}/>
         </View>
-        <View style={styles.space}/> 
-      </ScrollView>
+      </View>
       
     );
   }

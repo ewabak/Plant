@@ -42,9 +42,7 @@ class CatalogPlant extends React.Component {
 
     })
 
-
   }
-
 
   constructor(props){
     super(props);
@@ -99,8 +97,7 @@ render(){
           <Text></Text>
           <Button title="Add to your list" type="solid" 
           buttonStyle = {{backgroundColor:'#009C73'}} 
-          onPress={() => this.addToFavourites(scname, coname, obrazek,moisture,drought,fcolor,lifespan,bloom,gperiod,mheight,toxicity)}
-          onPress={() => this.props.navigation.navigate('Home')}
+          onPress={() => this.addToFavourites(scname, coname, obrazek,moisture,drought,fcolor,lifespan,bloom,gperiod,mheight,toxicity) && this.props.navigation.navigate('Home')}
           />
           <Text></Text>
           <View style={styles.tabHeader}><Text style={styles.textHeader}>Scientific name</Text></View>
